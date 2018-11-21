@@ -95,14 +95,13 @@ namespace ComputerStore.Manager.Manager
             }
         }
 
-        public MatHangDuocBan CreateTempMatHangDuocBan(string maSP, int soLuong, int km)
+        public MatHangDuocBan CreateTempMatHangDuocBan(string maSP, int km)
         {
             try
             {
                 MatHangDuocBan mhdb = new MatHangDuocBan();
                 mhdb.ID = (computerStoreEntities.MatHangDuocBans.Count() + 1).ToString("D10");
                 mhdb.MaSP = maSP;
-                mhdb.SoLuong = soLuong;
                 mhdb.KhuyenMai = km;
                 return mhdb;
             }

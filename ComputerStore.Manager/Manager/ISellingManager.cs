@@ -15,7 +15,7 @@ namespace ComputerStore.Manager.Manager
         MatHangDuocBan GetMatHangDuocBan(string id);
         bool AddHoaDon(HoaDon hoaDon);
         bool AddMatHangDuocBan(MatHangDuocBan matHangDuocBan);
-        MatHangDuocBan CreateTempMatHangDuocBan(string maSP, int soLuong, int km);
+        MatHangDuocBan CreateTempMatHangDuocBan(string maSP, int km);
         bool BanHang(List<MatHangDuocBan> mhdb, string maNV, string maKH);
         bool AddBaoHanh(string maSP, string maKH, TimeSpan duration);
     }

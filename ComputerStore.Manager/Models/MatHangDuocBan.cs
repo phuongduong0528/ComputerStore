@@ -19,8 +19,6 @@ namespace ComputerStore.Manager.Models
         [Required]
         [StringLength(10)]
         public string MaSP { get; set; }
-
-        public int? SoLuong { get; set; }
         
         public int? KhuyenMai { get; set; }
 

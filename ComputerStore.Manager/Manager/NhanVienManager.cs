@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ComputerStore.Manager.Manager
 {
-    class NhanVienManager : INhanVienManager
+    public class NhanVienManager : INhanVienManager
     {
         private ComputerStoreEntities computerStoreEntities;
 

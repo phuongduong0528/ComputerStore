@@ -7,7 +7,7 @@ using ComputerStore.Manager.Models;
 
 namespace ComputerStore.Manager.Manager
 {
-    class KhachHangManager : IKhachHangManager
+    public class KhachHangManager : IKhachHangManager
     {
         private ComputerStoreEntities computerStoreEntities;
 
