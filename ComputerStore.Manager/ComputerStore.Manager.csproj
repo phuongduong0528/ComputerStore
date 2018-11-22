@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201811210845126_FixMatHangDuocBan_2.Designer.cs">
       <DependentUpon>201811210845126_FixMatHangDuocBan_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811220629188_Test.cs" />
+    <Compile Include="Migrations\201811220629188_Test.Designer.cs">
+      <DependentUpon>201811220629188_Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaoHanh.cs" />
     <Compile Include="Models\ComputerStoreEntities.cs" />
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811210845126_FixMatHangDuocBan_2.resx">
       <DependentUpon>201811210845126_FixMatHangDuocBan_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811220629188_Test.resx">
+      <DependentUpon>201811220629188_Test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

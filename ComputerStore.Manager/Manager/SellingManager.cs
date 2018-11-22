@@ -7,7 +7,7 @@ using ComputerStore.Manager.Models;
 
 namespace ComputerStore.Manager.Manager
 {
-    class SellingManager : ISellingManager
+    public class SellingManager : ISellingManager
     {
         private ComputerStoreEntities computerStoreEntities;
         public SellingManager() => computerStoreEntities = new ComputerStoreEntities();
@@ -78,12 +78,12 @@ namespace ComputerStore.Manager.Manager
                 hoaDon.MaKH = maKH;
                 hoaDon.MaNV = maNV;
                 hoaDon.NgayLap = DateTime.Now;
-                foreach (var x in mhdb)
+                foreach (MatHangDuocBan mh in mhdb)
                 {
-                    x.ID = (computerStoreEntities.MatHangDuocBans.Count() + 1).ToString("D10");
-                    x.MaHD = hoaDon.MaHD;
-                    total += x.SanPham.MatHang.GiaNiemYet - ((x.SanPham.MatHang.GiaNiemYet / 100) * x.KhuyenMai);
-                    AddMatHangDuocBan(x);
+                    mh.ID = (computerStoreEntities.MatHangDuocBans.Count() + 1).ToString("D10");
+                    mh.MaHD = hoaDon.MaHD;
+                    total += mh.SanPham.MatHang.GiaNiemYet - ((mh.SanPham.MatHang.GiaNiemYet / 100) * mh.KhuyenMai);
+                    AddMatHangDuocBan(mh);
                 }
                 hoaDon.ThanhTien = total;
                 AddHoaDon(hoaDon);
@@ -101,6 +101,7 @@ namespace ComputerStore.Manager.Manager
             {
                 MatHangDuocBan mhdb = new MatHangDuocBan();
                 mhdb.ID = (computerStoreEntities.MatHangDuocBans.Count() + 1).ToString("D10");
+                mhdb.MaHD = "0000000000";
                 mhdb.MaSP = maSP;
                 mhdb.KhuyenMai = km;
                 return mhdb;
