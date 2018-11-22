@@ -15,7 +15,7 @@ namespace ComputerStore.Services.Dto
         [DisplayName("Ma HSX")]
         public string MaHSX { get; set; }
 
-        [DataMember(Name = "mahsx", Order = 1)]
+        [DataMember(Name = "tenhsx", Order = 1)]
         [DisplayName("Ten HSX")]
         public string TenHSX { get; set; }
     }

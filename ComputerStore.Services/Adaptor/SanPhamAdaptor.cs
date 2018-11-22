@@ -39,7 +39,7 @@ namespace ComputerStore.Services.Adaptor
             SanPham sanPham = new SanPham();
             sanPham.MaSP = sanPhamDto.MaSP;
             sanPham.Serial = sanPhamDto.Serial;
-            using(ComputerStoreEntities c = new ComputerStoreEntities)
+            using(ComputerStoreEntities c = new ComputerStoreEntities())
             {
                 sanPham.MaMH = c.MatHangs.FirstOrDefault(mh => mh.TenMatHang.Equals(sanPhamDto.TenMH)).MaMH;
             }
