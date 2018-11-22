@@ -39,6 +39,7 @@ namespace ComputerStore.Services
         [WebInvoke(
             UriTemplate = "/NhanVien/Lock",
             Method = "PUT",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         bool LockAccount(string id);
 

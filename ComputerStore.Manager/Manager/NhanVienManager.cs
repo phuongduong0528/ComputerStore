@@ -44,7 +44,7 @@ namespace ComputerStore.Manager.Manager
 
         public int Authenticate(string id, string password)
         {
-            var checkUser = computerStoreEntities.NhanViens
+            bool checkUser = computerStoreEntities.NhanViens
                 .Any(nv => nv.MaNV.Equals(id) && nv.MatKhau.Equals(password));
             if (!checkUser)
                 return 0;

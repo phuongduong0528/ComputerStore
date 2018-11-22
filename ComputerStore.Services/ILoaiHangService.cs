@@ -52,6 +52,7 @@ namespace ComputerStore.Services
         [WebInvoke(
             UriTemplate = "/NhaPhanPhoi",
             Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         bool AddNhaPhanPhoi(NhaPhanPhoiDto nhaPhanPhoiDto);
     }

@@ -27,7 +27,7 @@ namespace ComputerStore.Services
 
         [OperationContract]
         [WebGet(
-            UriTemplate = "/MHDB",
+            UriTemplate = "/MHDB/{idHD}",
             ResponseFormat = WebMessageFormat.Json)]
         List<MatHangDuocBanDto> GetMatHangDuocBan(string idHD);
 
