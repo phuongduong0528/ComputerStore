@@ -7,7 +7,7 @@ using ComputerStore.Manager.Models;
 
 namespace ComputerStore.Manager.Manager
 {
-    class MatHangManager : IMatHangManager
+    public class MatHangManager : IMatHangManager
     {
         private ComputerStoreEntities computerStoreEntities;
         public MatHangManager() => computerStoreEntities = new ComputerStoreEntities();

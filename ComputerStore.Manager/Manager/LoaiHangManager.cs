@@ -7,7 +7,7 @@ using ComputerStore.Manager.Models;
 
 namespace ComputerStore.Manager.Manager
 {
-    class LoaiHangManager : ILoaiHangManager
+    public class LoaiHangManager : ILoaiHangManager
     {
         private ComputerStoreEntities computerStoreEntities;
 

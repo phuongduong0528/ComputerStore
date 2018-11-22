@@ -52,13 +52,27 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adaptor\HangSanXuatAdaptor.cs" />
     <Compile Include="Adaptor\KhachHangAdaptor.cs" />
+    <Compile Include="Adaptor\LoaiHangAdaptor.cs" />
+    <Compile Include="Adaptor\MatHangAdaptor.cs" />
     <Compile Include="Adaptor\NhanVienAdaptor.cs" />
+    <Compile Include="Adaptor\NhaPhanPhoiAdaptor.cs" />
+    <Compile Include="Adaptor\SanPhamAdaptor.cs" />
+    <Compile Include="Dto\HangSanXuatDto.cs" />
     <Compile Include="Dto\KhachHangDto.cs" />
+    <Compile Include="Dto\LoaiHangDto.cs" />
+    <Compile Include="Dto\MatHangDto.cs" />
     <Compile Include="Dto\NhanVienDto.cs" />
+    <Compile Include="Dto\NhaPhanPhoiDto.cs" />
+    <Compile Include="Dto\SanPhamDto.cs" />
     <Compile Include="IKhachHangService.cs" />
+    <Compile Include="ILoaiHangService.cs" />
+    <Compile Include="IMatHangService.cs" />
     <Compile Include="INhanVienService.cs" />
     <Compile Include="KhachHangService.cs" />
+    <Compile Include="LoaiHangService.cs" />
+    <Compile Include="MatHangService.cs" />
     <Compile Include="NhanVienService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
