@@ -44,5 +44,38 @@ namespace ComputerStore.FormApplication
             cbxLoaiHang.SelectedIndex = 0;
             cbxHsx.SelectedIndex = 0;
         }
+
+        private void grpbChonhang_Enter(object sender, EventArgs e)
+        {
+            lstboxMatHang.Visible = false;
+        }
+
+        private async void txtbxTenHang_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                lstboxMatHang.Visible = true;
+                List<Services.Dto.MatHangDto> sp = await matHangController.GetMatHangFilter(
+                        txtbxTenHang.Text.ToLower(),
+                        cbxLoaiHang.SelectedItem.ToString(), 
+                        cbxHsx.SelectedItem.ToString());
+                lstboxMatHang.DataSource = sp.Select(spp => spp.TenMatHang).Take(10).ToList();
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void BanHangForm_Click(object sender, EventArgs e)
+        {
+            lstboxMatHang.Visible = false;
+        }
+
+        private void lstboxMatHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtbxTenHang.Text = lstboxMatHang.SelectedItem.ToString();
+            lstboxMatHang.Visible = false;
+        }
     }
 }

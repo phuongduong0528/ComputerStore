@@ -124,13 +124,16 @@ namespace ComputerStore.Manager.Manager
 
         public SanPham GetSanPham(string id) => computerStoreEntities.SanPhams.SingleOrDefault(sp => sp.MaSP.Equals(id));
 
-        public List<SanPham> GetSanPhamFilter(string loaiHang, string hsx)
+        public List<MatHang> GetMatHangFilter(string name, string loaiHang, string hsx)
         {
             return loaiHang.Equals("*") ?
-                GetAllSanPham().Where(sp => sp.MatHang.HangSanXuat.TenHSX.Equals(hsx)).ToList() :
+                GetAllMatHang().Where(sp => sp.HangSanXuat.TenHSX.Equals(hsx))
+                               .Where(sp2 => sp2.TenMatHang.ToLower().Contains(name)).ToList() :
                 (
-                GetAllSanPham().Where(sp => sp.MatHang.LoaiHang.Equals(loaiHang))
-                               .Where(hsp => hsp.MatHang.HangSanXuat.TenHSX.Equals(hsx)).ToList()
+                GetAllMatHang().Where(sp => sp.LoaiHang.TenLoaiHang.Equals(loaiHang) &&
+                                            sp.HangSanXuat.Equals(hsx))
+                               .Where(sp2 => sp2.TenMatHang.ToLower().Contains(name)).ToList()
+                               
                 );
         }
     }

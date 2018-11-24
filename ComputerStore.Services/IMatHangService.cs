@@ -46,10 +46,12 @@ namespace ComputerStore.Services
         List<SanPhamDto> GetAllSanPham();
 
         [OperationContract]
-        [WebGet(
-            UriTemplate = "/SanPham/{lh}/{hsx}",
+        [WebInvoke(
+            UriTemplate = "/MatHang/Filter",
+            Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
-        List<SanPhamDto> GetSanPhamFilter(string lh, string hsx);
+        List<MatHangDto> GetMatHangFilter(string name, string lh, string hsx);
 
         [OperationContract]
         [WebGet(

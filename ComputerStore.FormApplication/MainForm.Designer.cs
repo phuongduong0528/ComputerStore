@@ -87,6 +87,7 @@
             this.qlToolStripMenuItem.Name = "qlToolStripMenuItem";
             this.qlToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.qlToolStripMenuItem.Text = "QL Hàng";
+            this.qlToolStripMenuItem.Click += new System.EventHandler(this.qlToolStripMenuItem_Click);
             // 
             // qLHóaĐơnToolStripMenuItem
             // 

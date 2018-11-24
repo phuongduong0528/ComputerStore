@@ -13,6 +13,7 @@ namespace ComputerStore.FormApplication
     public partial class MainForm : Form
     {
         BanHangForm banHangForm;
+        QuanLyHangForm quanLyHangForm;
         string idUser;
         public MainForm()
         {
@@ -46,6 +47,26 @@ namespace ComputerStore.FormApplication
         private void BanHangForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             banHangForm = null;
+        }
+
+        private void qlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(quanLyHangForm == null)
+            {
+                quanLyHangForm = new QuanLyHangForm();
+                quanLyHangForm.MdiParent = this;
+                quanLyHangForm.FormClosed += QuanLyHangForm_FormClosed;
+                quanLyHangForm.Show();
+            }
+            else
+            {
+                quanLyHangForm.BringToFront();
+            }
+        }
+
+        private void QuanLyHangForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            quanLyHangForm = null;
         }
     }
 }

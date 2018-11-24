@@ -1,4 +1,5 @@
 ﻿using ComputerStore.Services.Dto;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,11 +57,18 @@ namespace ComputerStore.FormApplication.Controller
             return respond;
         }
 
-        public async Task<List<SanPhamDto>> GetSanPhamFilter(string lh, string hsx)
+        public async Task<List<MatHangDto>> GetMatHangFilter(string pname, string plh, string phsx)
         {
-            RequestController<List<SanPhamDto>> controller = new RequestController<List<SanPhamDto>>();
-            controller.Url = baseUrl + $"/SanPham/{lh}/{hsx}";
-            List<SanPhamDto> respond = await controller.GetData();
+            RequestController<List<MatHangDto>> controller = new RequestController<List<MatHangDto>>();
+            controller.Url = baseUrl + $"/MatHang/Filter";
+            object obj = new
+            {
+                name = pname,
+                lh = plh,
+                hsx = phsx
+            };
+            List<MatHangDto> respond = 
+                await controller.SubmitDataJson(RestSharp.Method.POST,JsonConvert.SerializeObject(obj));
             return respond;
         }
 

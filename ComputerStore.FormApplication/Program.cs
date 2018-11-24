@@ -9,12 +9,15 @@ namespace ComputerStore.FormApplication
 {
     static class Program
     {
+        private static LogInForm logInForm;
+        public static LogInForm LogInForm { get; }
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInForm());
+            logInForm = new LogInForm();
+            Application.Run(logInForm);
         }
     }
 }

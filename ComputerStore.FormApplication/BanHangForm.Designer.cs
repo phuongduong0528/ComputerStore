@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpbChonhang = new System.Windows.Forms.GroupBox();
+            this.lstboxMatHang = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,13 +56,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpbChonhang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMhdb)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoadon)).BeginInit();
@@ -76,7 +77,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.grpbChonhang);
             // 
             // splitContainer1.Panel2
             // 
@@ -85,31 +86,45 @@
             this.splitContainer1.SplitterDistance = 402;
             this.splitContainer1.TabIndex = 2;
             // 
-            // groupBox1
+            // grpbChonhang
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpbChonhang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btnToHd);
-            this.groupBox1.Controls.Add(this.cbxHsx);
-            this.groupBox1.Controls.Add(this.txtbxTenHang);
-            this.groupBox1.Controls.Add(this.cbxLoaiHang);
-            this.groupBox1.Controls.Add(this.dgvMhdb);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 489);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chọn hàng";
+            this.grpbChonhang.Controls.Add(this.lstboxMatHang);
+            this.grpbChonhang.Controls.Add(this.label3);
+            this.grpbChonhang.Controls.Add(this.textBox3);
+            this.grpbChonhang.Controls.Add(this.textBox2);
+            this.grpbChonhang.Controls.Add(this.label2);
+            this.grpbChonhang.Controls.Add(this.label9);
+            this.grpbChonhang.Controls.Add(this.label8);
+            this.grpbChonhang.Controls.Add(this.label1);
+            this.grpbChonhang.Controls.Add(this.btnAdd);
+            this.grpbChonhang.Controls.Add(this.button1);
+            this.grpbChonhang.Controls.Add(this.btnToHd);
+            this.grpbChonhang.Controls.Add(this.cbxHsx);
+            this.grpbChonhang.Controls.Add(this.txtbxTenHang);
+            this.grpbChonhang.Controls.Add(this.cbxLoaiHang);
+            this.grpbChonhang.Controls.Add(this.dgvMhdb);
+            this.grpbChonhang.Location = new System.Drawing.Point(3, 3);
+            this.grpbChonhang.Name = "grpbChonhang";
+            this.grpbChonhang.Size = new System.Drawing.Size(396, 489);
+            this.grpbChonhang.TabIndex = 1;
+            this.grpbChonhang.TabStop = false;
+            this.grpbChonhang.Text = "Chọn hàng";
+            this.grpbChonhang.Enter += new System.EventHandler(this.grpbChonhang_Enter);
+            // 
+            // lstboxMatHang
+            // 
+            this.lstboxMatHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstboxMatHang.FormattingEnabled = true;
+            this.lstboxMatHang.ItemHeight = 20;
+            this.lstboxMatHang.Location = new System.Drawing.Point(110, 78);
+            this.lstboxMatHang.Name = "lstboxMatHang";
+            this.lstboxMatHang.Size = new System.Drawing.Size(280, 84);
+            this.lstboxMatHang.TabIndex = 8;
+            this.lstboxMatHang.Visible = false;
+            this.lstboxMatHang.SelectedIndexChanged += new System.EventHandler(this.lstboxMatHang_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -142,6 +157,24 @@
             this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Số lượng:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 20);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Tên hàng:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 20);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Loại hàng:";
             // 
             // label1
             // 
@@ -218,6 +251,7 @@
             this.txtbxTenHang.Name = "txtbxTenHang";
             this.txtbxTenHang.Size = new System.Drawing.Size(179, 29);
             this.txtbxTenHang.TabIndex = 2;
+            this.txtbxTenHang.TextChanged += new System.EventHandler(this.txtbxTenHang_TextChanged);
             // 
             // cbxLoaiHang
             // 
@@ -376,24 +410,6 @@
             this.button4.Text = "Xóa ";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 20);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Loại hàng:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 54);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 20);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Tên hàng:";
-            // 
             // BanHangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -406,12 +422,13 @@
             this.Name = "BanHangForm";
             this.Text = "BanHangForm";
             this.Load += new System.EventHandler(this.BanHangForm_Load);
+            this.Click += new System.EventHandler(this.BanHangForm_Click);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpbChonhang.ResumeLayout(false);
+            this.grpbChonhang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMhdb)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -423,7 +440,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpbChonhang;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
@@ -449,5 +466,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox lstboxMatHang;
     }
 }
