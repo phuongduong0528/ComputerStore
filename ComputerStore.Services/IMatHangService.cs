@@ -47,6 +47,12 @@ namespace ComputerStore.Services
 
         [OperationContract]
         [WebGet(
+            UriTemplate = "/SanPham/{lh}/{hsx}",
+            ResponseFormat = WebMessageFormat.Json)]
+        List<SanPhamDto> GetSanPhamFilter(string lh, string hsx);
+
+        [OperationContract]
+        [WebGet(
             UriTemplate = "/SanPham/{id}",
             ResponseFormat = WebMessageFormat.Json)]
         SanPhamDto GetSanPham(string id);

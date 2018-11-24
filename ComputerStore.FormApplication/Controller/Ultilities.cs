@@ -10,7 +10,7 @@ namespace ComputerStore.FormApplication.Controller
     public class Ultilities
     {
         public static string ip;
-        public static string port;
+        public static int port;
 
         public static string ToHashString(string str)
         {

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ComputerStore.FormApplication
 {
-    public partial class Form1 : Form
+    public partial class QuanLyHangForm : Form
     {
-        public Form1()
+        public QuanLyHangForm()
         {
             InitializeComponent();
         }

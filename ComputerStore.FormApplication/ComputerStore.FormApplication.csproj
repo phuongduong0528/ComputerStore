@@ -53,17 +53,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\NhanVienController.cs" />
-    <Compile Include="Controller\RequestController.cs" />
-    <Compile Include="Controller\Ultilities.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="BanHangForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BanHangForm.Designer.cs">
+      <DependentUpon>BanHangForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\DtoSerializer.cs" />
+    <Compile Include="Controller\KhachHangController.cs" />
+    <Compile Include="Controller\LoaiHangController.cs" />
+    <Compile Include="Controller\MatHangController.cs" />
+    <Compile Include="Controller\NhanVienController.cs" />
+    <Compile Include="Controller\RequestController.cs" />
+    <Compile Include="Controller\SellingController.cs" />
+    <Compile Include="Controller\Ultilities.cs" />
+    <Compile Include="LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLyHangForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyHangForm.Designer.cs">
+      <DependentUpon>QuanLyHangForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BanHangForm.resx">
+      <DependentUpon>BanHangForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -73,6 +105,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QuanLyHangForm.resx">
+      <DependentUpon>QuanLyHangForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +122,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ComputerStore.Services\ComputerStore.Services.csproj">
+      <Project>{5ff8c939-63b8-47be-ba97-737243bc70ca}</Project>
+      <Name>ComputerStore.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

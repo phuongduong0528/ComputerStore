@@ -59,5 +59,10 @@ namespace ComputerStore.Services
         {
             return sanPhamAdaptor.GetSanPhamDto(MatHangManager.GetSanPham(id));
         }
+
+        public List<SanPhamDto> GetSanPhamFilter(string lh, string hsx)
+        {
+            return sanPhamAdaptor.GetListSanPhamDto(MatHangManager.GetSanPhamFilter(lh, hsx));
+        }
     }
 }

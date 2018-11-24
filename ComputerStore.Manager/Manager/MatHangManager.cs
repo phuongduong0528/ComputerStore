@@ -123,5 +123,15 @@ namespace ComputerStore.Manager.Manager
         public MatHang GetMatHang(string id) => computerStoreEntities.MatHangs.SingleOrDefault(mh => mh.MaMH.Equals(id));
 
         public SanPham GetSanPham(string id) => computerStoreEntities.SanPhams.SingleOrDefault(sp => sp.MaSP.Equals(id));
+
+        public List<SanPham> GetSanPhamFilter(string loaiHang, string hsx)
+        {
+            return loaiHang.Equals("*") ?
+                GetAllSanPham().Where(sp => sp.MatHang.HangSanXuat.TenHSX.Equals(hsx)).ToList() :
+                (
+                GetAllSanPham().Where(sp => sp.MatHang.LoaiHang.Equals(loaiHang))
+                               .Where(hsp => hsp.MatHang.HangSanXuat.TenHSX.Equals(hsx)).ToList()
+                );
+        }
     }
 }
