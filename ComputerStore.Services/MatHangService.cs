@@ -64,5 +64,10 @@ namespace ComputerStore.Services
         {
             return matHangAdaptor.GetListMatHangDto(MatHangManager.GetMatHangFilter(name, lh, hsx));
         }
+
+        public List<SanPhamDto> GetSanPhamByMatHang(string idmh, int status)
+        {
+            return sanPhamAdaptor.GetListSanPhamDto(MatHangManager.GetSanPhamByMatHang(idmh, status));
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace ComputerStore.Manager.Manager
         List<MatHang> GetAllMatHang();
         List<MatHang> GetMatHangFilter(string name, string loaiHang, string hsx);
         List<SanPham> GetAllSanPham();
+        List<SanPham> GetSanPhamByMatHang(string idmh, int status);
         MatHang GetMatHang(string id);
         SanPham GetSanPham(string id);
         bool AddMatHang(MatHang matHang);

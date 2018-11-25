@@ -46,7 +46,6 @@ namespace ComputerStore.Services.Adaptor
                     matHang.MaNPP = entities.NhaPhanPhois.FirstOrDefault(npp => npp.TenNhaPhanPhoi.Equals(matHangDto.NhaPhanPhoi)).MaNPP;
                 }
                 matHang.TenMatHang = matHangDto.TenMatHang;
-                matHang.SoLuong = matHangDto.SoLuong;
                 matHang.GiaNiemYet = matHangDto.GiaNiemYet;
                 return matHang;
             }

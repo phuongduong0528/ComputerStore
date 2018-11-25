@@ -32,30 +32,29 @@
             this.grpbChonhang = new System.Windows.Forms.GroupBox();
             this.lstboxMatHang = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtbxKhuyenMai = new System.Windows.Forms.TextBox();
+            this.txtbxSoluong = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnToHd = new System.Windows.Forms.Button();
+            this.buttonToHd = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.cbxHsx = new System.Windows.Forms.ComboBox();
             this.txtbxTenHang = new System.Windows.Forms.TextBox();
             this.cbxLoaiHang = new System.Windows.Forms.ComboBox();
             this.dgvMhdb = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblTong = new System.Windows.Forms.Label();
+            this.lblNgay = new System.Windows.Forms.Label();
+            this.lblNV = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvHoadon = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtbxMKH = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnBanHang = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,15 +92,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpbChonhang.Controls.Add(this.lstboxMatHang);
             this.grpbChonhang.Controls.Add(this.label3);
-            this.grpbChonhang.Controls.Add(this.textBox3);
-            this.grpbChonhang.Controls.Add(this.textBox2);
+            this.grpbChonhang.Controls.Add(this.txtbxKhuyenMai);
+            this.grpbChonhang.Controls.Add(this.txtbxSoluong);
             this.grpbChonhang.Controls.Add(this.label2);
             this.grpbChonhang.Controls.Add(this.label9);
             this.grpbChonhang.Controls.Add(this.label8);
             this.grpbChonhang.Controls.Add(this.label1);
             this.grpbChonhang.Controls.Add(this.btnAdd);
-            this.grpbChonhang.Controls.Add(this.button1);
-            this.grpbChonhang.Controls.Add(this.btnToHd);
+            this.grpbChonhang.Controls.Add(this.buttonToHd);
+            this.grpbChonhang.Controls.Add(this.btnXoa);
             this.grpbChonhang.Controls.Add(this.cbxHsx);
             this.grpbChonhang.Controls.Add(this.txtbxTenHang);
             this.grpbChonhang.Controls.Add(this.cbxLoaiHang);
@@ -124,6 +123,7 @@
             this.lstboxMatHang.Size = new System.Drawing.Size(280, 84);
             this.lstboxMatHang.TabIndex = 8;
             this.lstboxMatHang.Visible = false;
+            this.lstboxMatHang.Click += new System.EventHandler(this.lstboxMatHang_Click);
             this.lstboxMatHang.SelectedIndexChanged += new System.EventHandler(this.lstboxMatHang_SelectedIndexChanged);
             // 
             // label3
@@ -135,19 +135,19 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Khuyến mại:";
             // 
-            // textBox3
+            // txtbxKhuyenMai
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 142);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 27);
-            this.textBox3.TabIndex = 6;
+            this.txtbxKhuyenMai.Location = new System.Drawing.Point(110, 142);
+            this.txtbxKhuyenMai.Name = "txtbxKhuyenMai";
+            this.txtbxKhuyenMai.Size = new System.Drawing.Size(100, 27);
+            this.txtbxKhuyenMai.TabIndex = 6;
             // 
-            // textBox2
+            // txtbxSoluong
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 27);
-            this.textBox2.TabIndex = 6;
+            this.txtbxSoluong.Location = new System.Drawing.Point(110, 110);
+            this.txtbxSoluong.Name = "txtbxSoluong";
+            this.txtbxSoluong.Size = new System.Drawing.Size(100, 27);
+            this.txtbxSoluong.TabIndex = 6;
             // 
             // label2
             // 
@@ -199,37 +199,40 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Thêm ";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button1
+            // buttonToHd
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Teal;
-            this.button1.Location = new System.Drawing.Point(310, 174);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "OK ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonToHd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonToHd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.buttonToHd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonToHd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonToHd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonToHd.ForeColor = System.Drawing.Color.Teal;
+            this.buttonToHd.Location = new System.Drawing.Point(310, 174);
+            this.buttonToHd.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonToHd.Name = "buttonToHd";
+            this.buttonToHd.Size = new System.Drawing.Size(80, 27);
+            this.buttonToHd.TabIndex = 4;
+            this.buttonToHd.Text = "OK ";
+            this.buttonToHd.UseVisualStyleBackColor = true;
+            this.buttonToHd.Click += new System.EventHandler(this.buttonToHd_Click);
             // 
-            // btnToHd
+            // btnXoa
             // 
-            this.btnToHd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.btnToHd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnToHd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToHd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToHd.ForeColor = System.Drawing.Color.Red;
-            this.btnToHd.Location = new System.Drawing.Point(86, 174);
-            this.btnToHd.Margin = new System.Windows.Forms.Padding(0);
-            this.btnToHd.Name = "btnToHd";
-            this.btnToHd.Size = new System.Drawing.Size(80, 27);
-            this.btnToHd.TabIndex = 4;
-            this.btnToHd.Text = "Xóa ";
-            this.btnToHd.UseVisualStyleBackColor = true;
+            this.btnXoa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnXoa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.ForeColor = System.Drawing.Color.Red;
+            this.btnXoa.Location = new System.Drawing.Point(86, 174);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(0);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(80, 27);
+            this.btnXoa.TabIndex = 4;
+            this.btnXoa.Text = "Xóa ";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // cbxHsx
             // 
@@ -280,16 +283,15 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lblTong);
+            this.groupBox2.Controls.Add(this.lblNgay);
+            this.groupBox2.Controls.Add(this.lblNV);
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.dgvHoadon);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txtbxMKH);
             this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.btnBanHang);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(388, 492);
@@ -297,33 +299,33 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hóa đơn";
             // 
-            // label6
+            // lblTong
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(254, 126);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Tổng";
+            this.lblTong.AutoSize = true;
+            this.lblTong.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTong.Location = new System.Drawing.Point(177, 126);
+            this.lblTong.Name = "lblTong";
+            this.lblTong.Size = new System.Drawing.Size(45, 20);
+            this.lblTong.TabIndex = 8;
+            this.lblTong.Text = "Tổng";
             // 
-            // label7
+            // lblNgay
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 126);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 20);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Ngày lập";
+            this.lblNgay.AutoSize = true;
+            this.lblNgay.Location = new System.Drawing.Point(6, 126);
+            this.lblNgay.Name = "lblNgay";
+            this.lblNgay.Size = new System.Drawing.Size(69, 20);
+            this.lblNgay.TabIndex = 8;
+            this.lblNgay.Text = "Ngày lập";
             // 
-            // label5
+            // lblNV
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 93);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Nhân viên:";
+            this.lblNV.AutoSize = true;
+            this.lblNV.Location = new System.Drawing.Point(8, 93);
+            this.lblNV.Name = "lblNV";
+            this.lblNV.Size = new System.Drawing.Size(78, 20);
+            this.lblNV.TabIndex = 8;
+            this.lblNV.Text = "Nhân viên:";
             // 
             // checkBox1
             // 
@@ -356,12 +358,12 @@
             this.dgvHoadon.Size = new System.Drawing.Size(376, 286);
             this.dgvHoadon.TabIndex = 0;
             // 
-            // textBox4
+            // txtbxMKH
             // 
-            this.textBox4.Location = new System.Drawing.Point(122, 23);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 27);
-            this.textBox4.TabIndex = 6;
+            this.txtbxMKH.Location = new System.Drawing.Point(122, 23);
+            this.txtbxMKH.Name = "txtbxMKH";
+            this.txtbxMKH.Size = new System.Drawing.Size(100, 27);
+            this.txtbxMKH.TabIndex = 6;
             // 
             // button2
             // 
@@ -378,37 +380,23 @@
             this.button2.Text = "Tạo mới ";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnBanHang
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Teal;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(245, 155);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(137, 42);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Bán hàng ";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(6, 174);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 27);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Xóa ";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBanHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBanHang.BackColor = System.Drawing.Color.Teal;
+            this.btnBanHang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnBanHang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBanHang.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBanHang.ForeColor = System.Drawing.Color.White;
+            this.btnBanHang.Location = new System.Drawing.Point(245, 155);
+            this.btnBanHang.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBanHang.Name = "btnBanHang";
+            this.btnBanHang.Size = new System.Drawing.Size(137, 42);
+            this.btnBanHang.TabIndex = 4;
+            this.btnBanHang.Text = "Bán hàng ";
+            this.btnBanHang.UseVisualStyleBackColor = false;
+            this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 
             // BanHangForm
             // 
@@ -442,28 +430,27 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox grpbChonhang;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtbxKhuyenMai;
+        private System.Windows.Forms.TextBox txtbxSoluong;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnToHd;
+        private System.Windows.Forms.Button buttonToHd;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ComboBox cbxHsx;
         private System.Windows.Forms.TextBox txtbxTenHang;
         private System.Windows.Forms.ComboBox cbxLoaiHang;
         private System.Windows.Forms.DataGridView dgvMhdb;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTong;
+        private System.Windows.Forms.Label lblNgay;
+        private System.Windows.Forms.Label lblNV;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvHoadon;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtbxMKH;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnBanHang;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lstboxMatHang;

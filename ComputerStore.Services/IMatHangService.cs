@@ -47,6 +47,14 @@ namespace ComputerStore.Services
 
         [OperationContract]
         [WebInvoke(
+            UriTemplate = "/SanPham/Filter",
+            Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        List<SanPhamDto> GetSanPhamByMatHang(string idmh, int status);
+
+        [OperationContract]
+        [WebInvoke(
             UriTemplate = "/MatHang/Filter",
             Method = "POST",
             BodyStyle = WebMessageBodyStyle.WrappedRequest,

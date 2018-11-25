@@ -67,7 +67,7 @@ namespace ComputerStore.FormApplication.Controller
                 idNV = pidNV,
                 idKH = pidKH
             };
-
+            var test = JsonConvert.SerializeObject(obj);
             bool a = await controller.SubmitDataJson(RestSharp.Method.POST, JsonConvert.SerializeObject(obj));
             return a;
         }

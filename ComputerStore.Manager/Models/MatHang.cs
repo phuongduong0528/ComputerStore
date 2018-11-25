@@ -35,8 +35,6 @@ namespace ComputerStore.Manager.Models
         [StringLength(50)]
         public string TenMatHang { get; set; }
 
-        public int? SoLuong { get; set; }
-
         public long? GiaNiemYet { get; set; }
 
         public virtual HangSanXuat HangSanXuat { get; set; }

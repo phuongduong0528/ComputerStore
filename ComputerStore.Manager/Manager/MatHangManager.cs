@@ -136,5 +136,16 @@ namespace ComputerStore.Manager.Manager
                                
                 );
         }
+
+        public List<SanPham> GetSanPhamByMatHang(string idmh, int status)
+        {
+            if(status == 1)
+                return computerStoreEntities.SanPhams.Where(sp => sp.MatHang.MaMH.Equals(idmh) && sp.TinhTrang.Equals("OK")).ToList();
+            if(status == 2)
+                return computerStoreEntities.SanPhams.Where(sp => sp.MatHang.MaMH.Equals(idmh) && sp.TinhTrang.Equals("Sold")).ToList();
+            if(status == 3)
+                return computerStoreEntities.SanPhams.Where(sp => sp.MatHang.MaMH.Equals(idmh) && sp.TinhTrang.Equals("Stop")).ToList();
+            return computerStoreEntities.SanPhams.Where(sp => sp.MatHang.MaMH.Equals(idmh)).ToList();
+        }
     }
 }

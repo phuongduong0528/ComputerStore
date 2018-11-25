@@ -68,7 +68,7 @@
             this.txtbxIp.Name = "txtbxIp";
             this.txtbxIp.Size = new System.Drawing.Size(129, 25);
             this.txtbxIp.TabIndex = 1;
-            this.txtbxIp.Text = "192.168.5.101";
+            this.txtbxIp.Text = "192.168.5.103";
             // 
             // txtbxPort
             // 

@@ -10,6 +10,7 @@ namespace ComputerStore.Manager.Manager
     public class SellingManager : ISellingManager
     {
         private ComputerStoreEntities computerStoreEntities;
+        private readonly MatHangManager matHangManager = new MatHangManager();
         public SellingManager() => computerStoreEntities = new ComputerStoreEntities();
 
         public bool AddBaoHanh(string maSP, string maKH, TimeSpan duration)
@@ -35,8 +36,14 @@ namespace ComputerStore.Manager.Manager
             try
             {
                 if (hoaDon != null)
-                {                    
-                    computerStoreEntities.HoaDons.Add(hoaDon);
+                {
+                    HoaDon newHD = new HoaDon();
+                    newHD.MaHD = hoaDon.MaHD;
+                    newHD.MaNV = hoaDon.MaNV;
+                    newHD.MaKH = hoaDon.MaKH;
+                    newHD.NgayLap = hoaDon.NgayLap;
+                    newHD.ThanhTien = hoaDon.ThanhTien;
+                    computerStoreEntities.HoaDons.Add(newHD);
                     computerStoreEntities.SaveChanges();
                     return true;
                 }
@@ -54,8 +61,13 @@ namespace ComputerStore.Manager.Manager
             try
             {
                 if (matHangDuocBan != null)
-                {                    
-                    computerStoreEntities.MatHangDuocBans.Add(matHangDuocBan);
+                {
+                    MatHangDuocBan newMHDB = new MatHangDuocBan();
+                    newMHDB.ID = matHangDuocBan.ID;
+                    newMHDB.MaHD = matHangDuocBan.MaHD;
+                    newMHDB.KhuyenMai = matHangDuocBan.KhuyenMai;
+                    newMHDB.MaSP = matHangDuocBan.MaSP;
+                    computerStoreEntities.MatHangDuocBans.Add(newMHDB);
                     computerStoreEntities.SaveChanges();
                     return true;
                 }
@@ -78,15 +90,28 @@ namespace ComputerStore.Manager.Manager
                 hoaDon.MaKH = maKH;
                 hoaDon.MaNV = maNV;
                 hoaDon.NgayLap = DateTime.Now;
+                AddHoaDon(hoaDon);
                 foreach (MatHangDuocBan mh in mhdb)
                 {
+                    SanPham tempSp = matHangManager.GetSanPham(mh.MaSP);
+                    tempSp.TinhTrang = "Sold";
+                    matHangManager.EditSanPham(tempSp);
+
                     mh.ID = (computerStoreEntities.MatHangDuocBans.Count() + 1).ToString("D10");
                     mh.MaHD = hoaDon.MaHD;
-                    total += mh.SanPham.MatHang.GiaNiemYet - ((mh.SanPham.MatHang.GiaNiemYet / 100) * mh.KhuyenMai);
                     AddMatHangDuocBan(mh);
                 }
-                hoaDon.ThanhTien = total;
-                AddHoaDon(hoaDon);
+
+                computerStoreEntities = new ComputerStoreEntities();
+                var test = computerStoreEntities.MatHangDuocBans.Where(mh=>mh.MaHD.Equals(hoaDon.MaHD));
+                foreach (var a in test)
+                {
+                    total += a.SanPham.MatHang.GiaNiemYet - ((a.SanPham.MatHang.GiaNiemYet/100) * a.KhuyenMai);
+                }
+                var ab = GetHoaDon(hoaDon.MaHD);
+                ab.ThanhTien = total;
+                computerStoreEntities.Entry(ab).State = System.Data.Entity.EntityState.Modified;
+                computerStoreEntities.SaveChanges();
                 return true;
             }
             catch(Exception e)

@@ -57,6 +57,20 @@ namespace ComputerStore.FormApplication.Controller
             return respond;
         }
 
+        public async Task<List<SanPhamDto>> GetSanPhamByMatHang(string pidmh, int pstatus)
+        {
+            RequestController<List<SanPhamDto>> controller = new RequestController<List<SanPhamDto>>();
+            controller.Url = baseUrl + $"/SanPham/Filter";
+            object obj = new
+            {
+                idmh = pidmh,
+                status = pstatus
+            };
+            List<SanPhamDto> respond =
+                await controller.SubmitDataJson(RestSharp.Method.POST, JsonConvert.SerializeObject(obj));
+            return respond;
+        }
+
         public async Task<List<MatHangDto>> GetMatHangFilter(string pname, string plh, string phsx)
         {
             RequestController<List<MatHangDto>> controller = new RequestController<List<MatHangDto>>();
