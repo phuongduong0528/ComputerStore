@@ -37,10 +37,13 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cbxHsx = new System.Windows.Forms.ComboBox();
             this.dgvMatHang = new System.Windows.Forms.DataGridView();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -148,12 +151,13 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(678, 94);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tìm kiếm";
+            this.tabPage2.Text = "Công cụ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
@@ -166,14 +170,26 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.cbxHsx);
             this.splitContainer1.Panel1.Controls.Add(this.dgvMatHang);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvSanPham);
-            this.splitContainer1.Size = new System.Drawing.Size(681, 290);
+            this.splitContainer1.Size = new System.Drawing.Size(681, 255);
             this.splitContainer1.SplitterDistance = 326;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // cbxHsx
+            // 
+            this.cbxHsx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxHsx.FormattingEnabled = true;
+            this.cbxHsx.Location = new System.Drawing.Point(0, 4);
+            this.cbxHsx.Name = "cbxHsx";
+            this.cbxHsx.Size = new System.Drawing.Size(320, 28);
+            this.cbxHsx.TabIndex = 1;
+            this.cbxHsx.SelectedIndexChanged += new System.EventHandler(this.cbxHsx_SelectedIndexChanged);
             // 
             // dgvMatHang
             // 
@@ -182,9 +198,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMatHang.BackgroundColor = System.Drawing.Color.White;
             this.dgvMatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMatHang.Location = new System.Drawing.Point(0, 5);
+            this.dgvMatHang.Location = new System.Drawing.Point(0, 35);
             this.dgvMatHang.Name = "dgvMatHang";
-            this.dgvMatHang.Size = new System.Drawing.Size(320, 285);
+            this.dgvMatHang.Size = new System.Drawing.Size(320, 220);
             this.dgvMatHang.TabIndex = 0;
             this.dgvMatHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatHang_CellContentClick);
             // 
@@ -195,16 +211,29 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSanPham.Location = new System.Drawing.Point(3, 5);
+            this.dgvSanPham.Location = new System.Drawing.Point(3, 35);
             this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.Size = new System.Drawing.Size(345, 282);
+            this.dgvSanPham.Size = new System.Drawing.Size(352, 220);
             this.dgvSanPham.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ComputerStore.FormApplication.Properties.Resources.iconfinder_logo_brand_brands_logos_excel_2993694__1_;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(7, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 81);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Xuất Excel";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // QuanLyHangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 410);
+            this.ClientSize = new System.Drawing.Size(683, 375);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,6 +244,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -238,5 +268,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvMatHang;
         private System.Windows.Forms.DataGridView dgvSanPham;
+        private System.Windows.Forms.ComboBox cbxHsx;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -27,6 +27,14 @@ namespace ComputerStore.FormApplication
             matHangController = new MatHangController(Ultilities.ip, Ultilities.port);
             matHangDtos = await matHangController.GetAllMatHang();
             dgvMatHang.DataSource = matHangDtos;
+            cbxHsx.Items.Add("All");
+            LoaiHangController lhc = new LoaiHangController(Ultilities.ip, Ultilities.port);
+            List<HangSanXuatDto> listHsx = await lhc.GetAllHangSanXuat();
+            foreach(HangSanXuatDto hsx in listHsx)
+            {
+                cbxHsx.Items.Add(hsx.TenHSX);
+            }
+            cbxHsx.SelectedIndex = 0;
         }
 
         private async void RefreshData()
@@ -110,6 +118,21 @@ namespace ComputerStore.FormApplication
                 UpdateSanPhamForm uspf = new UpdateSanPhamForm(item, null);
                 uspf.FormClosed += Uspf_FormClosed;
                 uspf.ShowDialog();
+            }
+        }
+
+        private async void cbxHsx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbxHsx.SelectedIndex == 0)
+            {
+                RefreshData();
+                RefreshDgvMatHang();
+            }
+            else
+            {
+                List<MatHangDto> z = await matHangController.GetAllMatHang();
+                z = z.Where(mh => mh.HangSanXuat.Equals(cbxHsx.SelectedItem.ToString())).ToList();
+                dgvMatHang.DataSource = z;
             }
         }
     }

@@ -151,5 +151,9 @@
       <DependentUpon>201811271018574_FixHoaDonTableDataTypeDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DatabaseScript\DatabaseScript%28AutoGenerate%29.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
