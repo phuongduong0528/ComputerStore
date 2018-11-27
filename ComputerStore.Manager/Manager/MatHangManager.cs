@@ -117,7 +117,7 @@ namespace ComputerStore.Manager.Manager
                         sanPhamTemp.DonViTinh = sanPham.DonViTinh;
                         sanPhamTemp.NgayNhap = sanPham.NgayNhap;
                         sanPhamTemp.NgayXuat = sanPham.NgayXuat;
-                        sanPhamTemp.TinhTrang = sanPhamTemp.TinhTrang;
+                        sanPhamTemp.TinhTrang = sanPham.TinhTrang;
                         computerStoreEntities.Entry(sanPhamTemp).State = System.Data.Entity.EntityState.Modified;
                         computerStoreEntities.SaveChanges();
                         return true;

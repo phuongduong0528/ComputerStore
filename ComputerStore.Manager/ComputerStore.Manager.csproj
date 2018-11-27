@@ -96,6 +96,10 @@
     <Compile Include="Migrations\201811250204560_FixMatHangTable.Designer.cs">
       <DependentUpon>201811250204560_FixMatHangTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811271018574_FixHoaDonTableDataTypeDateTime.cs" />
+    <Compile Include="Migrations\201811271018574_FixHoaDonTableDataTypeDateTime.Designer.cs">
+      <DependentUpon>201811271018574_FixHoaDonTableDataTypeDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaoHanh.cs" />
     <Compile Include="Models\ComputerStoreEntities.cs" />
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811250204560_FixMatHangTable.resx">
       <DependentUpon>201811250204560_FixMatHangTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811271018574_FixHoaDonTableDataTypeDateTime.resx">
+      <DependentUpon>201811271018574_FixHoaDonTableDataTypeDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

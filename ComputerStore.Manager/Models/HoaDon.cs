@@ -27,7 +27,7 @@ namespace ComputerStore.Manager.Models
         [StringLength(10)]
         public string MaKH { get; set; }
 
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? NgayLap { get; set; }
 
         public long? ThanhTien { get; set; }

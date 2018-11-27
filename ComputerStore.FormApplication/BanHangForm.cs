@@ -108,6 +108,7 @@ namespace ComputerStore.FormApplication
 
                 for(int i = 0; i < sl; i++)
                 {
+                    tempMHDB = new MatHangDuocBanDto();
                     sp = sp.Skip(skip).ToList();
                     tempMHDB.ID = "";
                     tempMHDB.MaSP = sp[i].MaSP;
