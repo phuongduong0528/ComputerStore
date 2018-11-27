@@ -17,15 +17,24 @@ namespace ComputerStore.Services.Adaptor
             hoaDonDto.MaHD = hoaDon.MaHD;
             hoaDonDto.TenNV = $"{hoaDon.NhanVien.HoDem} {hoaDon.NhanVien.Ten}";
             hoaDonDto.TenKH = $"{hoaDon.KhachHang.HoDemKH} {hoaDon.KhachHang.TenKH}";
-            hoaDonDto.NgayLap = hoaDon.NgayLap.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-            hoaDonDto.ThanhTien = hoaDon.ThanhTien.Value;
+            hoaDonDto.NgayLap = hoaDon.NgayLap.Value.ToString(@"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture);
+            hoaDonDto.MaKH = hoaDon.MaKH;
+            hoaDonDto.MaNV = hoaDon.MaNV;
+            try
+            {
+                hoaDonDto.ThanhTien = hoaDon.ThanhTien.Value;
+            }
+            catch(Exception ex)
+            {
+                hoaDonDto.ThanhTien = 0;
+            }
             return hoaDonDto;
         }
 
         public List<HoaDonDto> GetListHoaDonDto(List<HoaDon> hoaDons)
         {
             List<HoaDonDto> hoaDonDtos = new List<HoaDonDto>();
-            foreach(HoaDon hd in hoaDons)
+            foreach (HoaDon hd in hoaDons)
             {
                 hoaDonDtos.Add(GetHoaDonDto(hd));
             }
@@ -38,7 +47,7 @@ namespace ComputerStore.Services.Adaptor
             hoaDon.MaHD = hoaDonDto.MaHD;
             hoaDon.MaNV = hoaDonDto.MaNV;
             hoaDon.MaKH = hoaDonDto.MaKH;
-            hoaDon.NgayLap = DateTime.ParseExact(hoaDonDto.NgayLap, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            hoaDon.NgayLap = DateTime.ParseExact(hoaDonDto.NgayLap, @"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture);
             hoaDon.ThanhTien = hoaDonDto.ThanhTien;
             return hoaDon;
         }

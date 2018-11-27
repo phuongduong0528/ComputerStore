@@ -20,6 +20,7 @@ namespace ComputerStore.Manager.Manager
             {
                 if (matHang != null)
                 {
+                    computerStoreEntities = new ComputerStoreEntities();
                     do
                     {
                         id = Convert.ToInt64(random.Next() + random.Next()).ToString("D10");
@@ -33,6 +34,7 @@ namespace ComputerStore.Manager.Manager
                 else
                     return false;
             }
+
             catch(Exception e)
             {
                 return false;
@@ -47,6 +49,7 @@ namespace ComputerStore.Manager.Manager
             {
                 if (sanPham != null)
                 {
+                    computerStoreEntities = new ComputerStoreEntities();
                     do
                     {
                         id = Convert.ToInt64(random.Next() + random.Next()).ToString("D10");
@@ -76,7 +79,14 @@ namespace ComputerStore.Manager.Manager
                         return false;
                     else
                     {
-                        computerStoreEntities.Entry(matHang).State = System.Data.Entity.EntityState.Modified;
+                        computerStoreEntities = new ComputerStoreEntities();
+                        MatHang x = computerStoreEntities.MatHangs.Single(mh => mh.MaMH.Equals(matHang.MaMH));
+                        x.MaLH = matHang.MaLH;
+                        x.MaHSX = matHang.MaHSX;
+                        x.MaNPP = matHang.MaNPP;
+                        x.TenMatHang = matHang.TenMatHang;
+                        x.GiaNiemYet = matHang.GiaNiemYet;
+                        computerStoreEntities.Entry(x).State = System.Data.Entity.EntityState.Modified;
                         computerStoreEntities.SaveChanges();
                         return true;
                     }
@@ -101,7 +111,14 @@ namespace ComputerStore.Manager.Manager
                         return false;
                     else
                     {
-                        computerStoreEntities.Entry(sanPham).State = System.Data.Entity.EntityState.Modified;
+                        computerStoreEntities = new ComputerStoreEntities();
+                        SanPham sanPhamTemp = computerStoreEntities.SanPhams.Single(sp => sp.MaSP.Equals(sanPham.MaSP));
+                        sanPhamTemp.Serial = sanPham.Serial;
+                        sanPhamTemp.DonViTinh = sanPham.DonViTinh;
+                        sanPhamTemp.NgayNhap = sanPham.NgayNhap;
+                        sanPhamTemp.NgayXuat = sanPham.NgayXuat;
+                        sanPhamTemp.TinhTrang = sanPhamTemp.TinhTrang;
+                        computerStoreEntities.Entry(sanPhamTemp).State = System.Data.Entity.EntityState.Modified;
                         computerStoreEntities.SaveChanges();
                         return true;
                     }

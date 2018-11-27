@@ -35,9 +35,82 @@ namespace ComputerStore.FormApplication
             matHangDtos = await matHangController.GetAllMatHang();
         }
 
-        private async void RefreshTable()
+        private async void RefreshDgvMatHang()
         {
             dgvMatHang.DataSource = matHangDtos;
+        }
+
+        private async void dgvMatHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                await RefreshDgvSanPham();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private async Task RefreshDgvSanPham()
+        {
+            dgvSanPham.DataSource = null;
+            int row = dgvMatHang.CurrentCell.RowIndex;
+            string item = dgvMatHang.Rows[row].Cells[0].Value.ToString();
+            sanPhamDtos = await matHangController.GetSanPhamByMatHang(item, 0);
+            dgvSanPham.DataSource = sanPhamDtos;
+        }
+
+        private void ctnThem_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                UpdateMatHangForm umhf = new UpdateMatHangForm();
+                umhf.FormClosed += Umhf_FormClosed;
+                umhf.ShowDialog();
+            }
+            else
+            {
+                int row = dgvSanPham.CurrentCell.RowIndex;
+                string item = dgvSanPham.Rows[row].Cells[2].Value.ToString();
+                UpdateSanPhamForm uspf = new UpdateSanPhamForm(null, item);
+                uspf.FormClosed += Uspf_FormClosed;
+                uspf.ShowDialog();
+            }
+        }
+
+        private async void Uspf_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshData();
+            RefreshDgvMatHang();
+            await RefreshDgvSanPham();
+        }
+
+        private async void Umhf_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshData();
+            RefreshDgvMatHang();
+            await RefreshDgvSanPham();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                int row = dgvMatHang.CurrentCell.RowIndex;
+                string item = dgvMatHang.Rows[row].Cells[0].Value.ToString();
+                UpdateMatHangForm upf = new UpdateMatHangForm(item);
+                upf.FormClosed += Umhf_FormClosed;
+                upf.ShowDialog();
+            }
+            else
+            {
+                int row = dgvSanPham.CurrentCell.RowIndex;
+                string item = dgvSanPham.Rows[row].Cells[0].Value.ToString();
+                UpdateSanPhamForm uspf = new UpdateSanPhamForm(item, null);
+                uspf.FormClosed += Uspf_FormClosed;
+                uspf.ShowDialog();
+            }
         }
     }
 }

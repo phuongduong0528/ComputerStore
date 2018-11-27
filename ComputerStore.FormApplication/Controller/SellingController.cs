@@ -10,41 +10,56 @@ namespace ComputerStore.FormApplication.Controller
 {
     public class SellingController
     {
-        private string url;
+        private string baseUrl;
 
         public SellingController(string ip, int port)
         {
-            url = $"http://{ip}:{port}/ComputerStore.Services/SellingService";
+            baseUrl = $"http://{ip}:{port}/ComputerStore.Services/SellingService";
         }
 
         public async Task<List<HoaDonDto>> GetAllHoaDon()
         {
             RequestController<List<HoaDonDto>> controller = new RequestController<List<HoaDonDto>>();
-            controller.Url = url = "/HoaDon";
+            controller.Url = baseUrl + "/HoaDon";
             List<HoaDonDto> respond = await controller.GetData();
+            return respond;
+        }
+
+        public async Task<List<HoaDonDto>> GetHoaDonFilter(string pmahd, string pfrom, string pto)
+        {
+            RequestController<List<HoaDonDto>> controller = new RequestController<List<HoaDonDto>>();
+            controller.Url = baseUrl + "/HoaDonFilter";
+            object obj = new
+            {
+                mahd = pmahd,
+                from = pfrom,
+                to = pto
+            };
+            List<HoaDonDto> respond = 
+                await controller.SubmitDataJson(RestSharp.Method.POST, JsonConvert.SerializeObject(obj));
             return respond;
         }
 
         public async Task<HoaDonDto> GetHoaDon(string id)
         {
             RequestController<HoaDonDto> controller = new RequestController<HoaDonDto>();
-            controller.Url = url = "/HoaDon/" + id;
+            controller.Url = baseUrl + "/HoaDon/" + id;
             HoaDonDto respond = await controller.GetData();
             return respond;
         }
 
-        public async Task<MatHangDuocBanDto> GetMatHangDuocBan(string hdid)
+        public async Task<List<MatHangDuocBanDto>> GetMatHangDuocBan(string hdid)
         {
-            RequestController<MatHangDuocBanDto> controller = new RequestController<MatHangDuocBanDto>();
-            controller.Url = url = "/MHDB/" + hdid;
-            MatHangDuocBanDto respond = await controller.GetData();
+            RequestController<List<MatHangDuocBanDto>> controller = new RequestController<List<MatHangDuocBanDto>>();
+            controller.Url = baseUrl + "/MHDB/" + hdid;
+            List<MatHangDuocBanDto> respond = await controller.GetData();
             return respond;
         }
 
         public async Task<bool> BanHangAsync(List<MatHangDuocBanDto> pmhdbDtos, string pidNV, string pidKH)
         {
             RequestController<bool> controller = new RequestController<bool>();
-            controller.Url = url + "/BanHang";
+            controller.Url = baseUrl + "/BanHang";
             List<object> list = new List<object>();
             foreach(MatHangDuocBanDto mhdb in pmhdbDtos)
             {

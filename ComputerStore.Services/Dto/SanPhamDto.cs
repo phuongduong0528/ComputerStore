@@ -13,22 +13,22 @@ namespace ComputerStore.Services.Dto
         [DataMember(Name = "masp", Order = 0)]
         public string MaSP { get; set; }
 
-        [DataMember(Name = "serial", Order = 0)]
+        [DataMember(Name = "serial", Order = 1)]
         public string Serial { get; set; }
 
-        [DataMember(Name = "tenmh", Order = 0)]
+        [DataMember(Name = "tenmh", Order = 2)]
         public string TenMH { get; set; }
 
-        [DataMember(Name = "donvitinh", Order = 0)]
+        [DataMember(Name = "donvitinh", Order = 3)]
         public string DonViTinh { get; set; }
 
-        [DataMember(Name = "ngaynhap", Order = 0)]
+        [DataMember(Name = "ngaynhap", Order = 4)]
         public string NgayNhap { get; set; }
 
-        [DataMember(Name = "ngayxuat", Order = 0)]
+        [DataMember(Name = "ngayxuat", Order = 5)]
         public string NgayXuat { get; set; }
 
-        [DataMember(Name = "tinhtrang", Order = 0)]
+        [DataMember(Name = "tinhtrang", Order = 6)]
         public string TinhTrang { get; set; }
     }
 }

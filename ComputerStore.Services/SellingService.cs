@@ -39,6 +39,11 @@ namespace ComputerStore.Services
             return hoaDonAdaptor.GetHoaDonDto(SellingManager.GetHoaDon(id));
         }
 
+        public List<HoaDonDto> GetHoaDonFilter(string mahd, string from, string to)
+        {
+            return hoaDonAdaptor.GetListHoaDonDto(SellingManager.GetHoaDonFilter(mahd, from, to));
+        }
+
         public List<MatHangDuocBanDto> GetMatHangDuocBan(string idHD)
         {
             return matHangDuocBanAdaptor.GetListMatHangDuocBanDto(SellingManager.GetMatHangDuocBansByHoaDon(idHD));

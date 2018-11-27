@@ -20,6 +20,14 @@ namespace ComputerStore.Services
         List<HoaDonDto> GetAllHoaDon();
 
         [OperationContract]
+        [WebInvoke(
+            UriTemplate = "/HoaDonFilter",
+            Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        List<HoaDonDto> GetHoaDonFilter(string mahd, string from, string to);
+
+        [OperationContract]
         [WebGet(
             UriTemplate = "/HoaDon/{id}",
             ResponseFormat = WebMessageFormat.Json)]
@@ -41,7 +49,7 @@ namespace ComputerStore.Services
         [WebInvoke(
             UriTemplate = "/BanHang",
             Method = "POST",
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         bool BanHang(List<MatHangDuocBanDto> mhdbDtos, string idNV, string idKH);
     }

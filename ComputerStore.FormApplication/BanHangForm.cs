@@ -52,6 +52,7 @@ namespace ComputerStore.FormApplication
             listTempMHDB = new List<MatHangDuocBanDto>();
             mathangDisplay = new List<MatHangDto>();
             tongThanhToan = 0;
+            checkBox1.Checked = true;
         }
 
         private void grpbChonhang_Enter(object sender, EventArgs e)
@@ -129,7 +130,6 @@ namespace ComputerStore.FormApplication
 
         private void lstboxMatHang_Click(object sender, EventArgs e)
         {
-
             txtbxTenHang.Text = lstboxMatHang.SelectedItem.ToString();
             mathangid = tempMatHang.FirstOrDefault(mh => mh.TenMatHang.Equals(lstboxMatHang.SelectedItem.ToString())).MaMH;
             lstboxMatHang.Visible = false;
@@ -182,6 +182,7 @@ namespace ComputerStore.FormApplication
 
         private async void btnBanHang_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 string khachHangId;
@@ -193,19 +194,31 @@ namespace ComputerStore.FormApplication
                 {
                     khachHangId = txtbxMKH.Text.Trim();
                 }
-                bool result = await sellingController.BanHangAsync(listTempMHDB, userId, khachHangId);
-                if (result)
+                var a = await sellingController.GetAllHoaDon();
+                int count = a.Count();
+                await sellingController.BanHangAsync(listTempMHDB, userId, khachHangId);
+                a = await sellingController.GetAllHoaDon();
+                int currentCount = a.Count();
+                if(currentCount > count)
                 {
-                    MessageBox.Show("Giao dịch thành công", "",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Giao dịch thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("Giao dịch thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                //if (result)
+                //{
+                //    MessageBox.Show("Giao dịch thành công", "",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Giao dịch thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }

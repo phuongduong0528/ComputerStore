@@ -94,6 +94,24 @@
     <Compile Include="QuanLyHangForm.Designer.cs">
       <DependentUpon>QuanLyHangForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateMatHangForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateMatHangForm.Designer.cs">
+      <DependentUpon>UpdateMatHangForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateSanPhamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateSanPhamForm.Designer.cs">
+      <DependentUpon>UpdateSanPhamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XemHoaDonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemHoaDonForm.Designer.cs">
+      <DependentUpon>XemHoaDonForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BanHangForm.resx">
       <DependentUpon>BanHangForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +132,15 @@
     </Compile>
     <EmbeddedResource Include="QuanLyHangForm.resx">
       <DependentUpon>QuanLyHangForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateMatHangForm.resx">
+      <DependentUpon>UpdateMatHangForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateSanPhamForm.resx">
+      <DependentUpon>UpdateSanPhamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XemHoaDonForm.resx">
+      <DependentUpon>XemHoaDonForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

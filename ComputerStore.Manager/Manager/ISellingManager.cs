@@ -10,6 +10,7 @@ namespace ComputerStore.Manager.Manager
     interface ISellingManager
     {
         List<HoaDon> GetAllHoaDon();
+        List<HoaDon> GetHoaDonFilter(string mahd, string from, string to);
         List<MatHangDuocBan> GetMatHangDuocBansByHoaDon(string maHD);
         HoaDon GetHoaDon(string id);
         MatHangDuocBan GetMatHangDuocBan(string id);

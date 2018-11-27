@@ -71,7 +71,6 @@ namespace ComputerStore.Services
         [WebInvoke(
             UriTemplate = "/SanPham",
             Method = "POST",
-            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         bool AddSanPham(SanPhamDto sanPhamDto);
 
@@ -79,7 +78,6 @@ namespace ComputerStore.Services
         [WebInvoke(
             UriTemplate = "/SanPham",
             Method = "PUT",
-            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         bool EditSanPham(SanPhamDto sanPhamDto);
     }

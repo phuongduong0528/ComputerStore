@@ -36,7 +36,7 @@ namespace ComputerStore.FormApplication.Controller
         public async Task<bool> AddMatHang(MatHangDto matHangDto)
         {
             RequestController<bool> controller = new RequestController<bool>();
-            controller.Url = baseUrl + "/MatHang/";
+            controller.Url = baseUrl + "/MatHang";
             bool respond = await controller.SubmitDataJson(RestSharp.Method.POST, DtoSerializer.SerializeMatHangDto(matHangDto));
             return respond;
         }
@@ -44,7 +44,7 @@ namespace ComputerStore.FormApplication.Controller
         public async Task<bool> EditMatHang(MatHangDto matHangDto)
         {
             RequestController<bool> controller = new RequestController<bool>();
-            controller.Url = baseUrl + "/MatHang/";
+            controller.Url = baseUrl + "/MatHang";
             bool respond = await controller.SubmitDataJson(RestSharp.Method.PUT, DtoSerializer.SerializeMatHangDto(matHangDto));
             return respond;
         }
@@ -106,6 +106,9 @@ namespace ComputerStore.FormApplication.Controller
         {
             RequestController<bool> controller = new RequestController<bool>();
             controller.Url = baseUrl + "/SanPham";
+
+            var test = DtoSerializer.SerializeSanPhamDto(sanPhamDto);
+
             bool respond = await controller.SubmitDataJson(RestSharp.Method.PUT, DtoSerializer.SerializeSanPhamDto(sanPhamDto));
             return respond;
         }

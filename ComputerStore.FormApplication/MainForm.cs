@@ -14,6 +14,7 @@ namespace ComputerStore.FormApplication
     {
         BanHangForm banHangForm;
         QuanLyHangForm quanLyHangForm;
+        XemHoaDonForm xemHoaDonForm;
         string idUser;
         public MainForm()
         {
@@ -67,6 +68,26 @@ namespace ComputerStore.FormApplication
         private void QuanLyHangForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             quanLyHangForm = null;
+        }
+
+        private void qLHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(xemHoaDonForm == null)
+            {
+                xemHoaDonForm = new XemHoaDonForm();
+                xemHoaDonForm.MdiParent = this;
+                xemHoaDonForm.FormClosed += XemHoaDonForm_FormClosed;
+                xemHoaDonForm.Show();
+            }
+            else
+            {
+                xemHoaDonForm.BringToFront();
+            }
+        }
+
+        private void XemHoaDonForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            xemHoaDonForm = null;
         }
     }
 }

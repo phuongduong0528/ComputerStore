@@ -84,7 +84,7 @@ namespace ComputerStore.Manager.Manager
             }
         }
 
-        public List<NhanVien> GetAllNhanVien() => computerStoreEntities.NhanViens.OrderBy(nv => nv.Ten).ToList();
+        public List<NhanVien> GetAllNhanVien() => computerStoreEntities.NhanViens.ToList();
 
         public NhanVien GetNhanVien(string maNV) => computerStoreEntities.NhanViens.SingleOrDefault(nv => nv.MaNV.Equals(maNV));
 

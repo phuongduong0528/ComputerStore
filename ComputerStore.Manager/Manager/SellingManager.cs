@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,10 +83,10 @@ namespace ComputerStore.Manager.Manager
         
         public bool BanHang(List<MatHangDuocBan> mhdb, string maNV, string maKH)
         {
+            HoaDon hoaDon = new HoaDon();
+            long? total = 0;
             try
             {
-                long? total = 0;
-                HoaDon hoaDon = new HoaDon();
                 hoaDon.MaHD = (computerStoreEntities.HoaDons.Count() + 1).ToString("D10");
                 hoaDon.MaKH = maKH;
                 hoaDon.MaNV = maNV;
@@ -95,6 +96,7 @@ namespace ComputerStore.Manager.Manager
                 {
                     SanPham tempSp = matHangManager.GetSanPham(mh.MaSP);
                     tempSp.TinhTrang = "Sold";
+                    tempSp.NgayXuat = DateTime.Now;
                     matHangManager.EditSanPham(tempSp);
 
                     mh.ID = (computerStoreEntities.MatHangDuocBans.Count() + 1).ToString("D10");
@@ -116,6 +118,27 @@ namespace ComputerStore.Manager.Manager
             }
             catch(Exception e)
             {
+                for(int i = 0; i < 10; i++)
+                {
+                    try
+                    {
+                        total = 0;
+                        computerStoreEntities = new ComputerStoreEntities();
+                        var test = computerStoreEntities.MatHangDuocBans.Where(mh => mh.MaHD.Equals(hoaDon.MaHD));
+                        foreach (var a in test)
+                        {
+                            total += a.SanPham.MatHang.GiaNiemYet - ((a.SanPham.MatHang.GiaNiemYet / 100) * a.KhuyenMai);
+                        }
+                        var ab = GetHoaDon(hoaDon.MaHD);
+                        ab.ThanhTien = total;
+                        computerStoreEntities.Entry(ab).State = System.Data.Entity.EntityState.Modified;
+                        computerStoreEntities.SaveChanges();
+                        return true;
+                    }
+                    catch(Exception ex2)
+                    {
+                    }
+                }
                 return false;
             }
         }
@@ -148,5 +171,17 @@ namespace ComputerStore.Manager.Manager
                 .Where(mhdb => mhdb.HoaDon.MaHD.Equals(maHD))
                 .OrderBy(mhdb => mhdb.HoaDon.NgayLap)
                 .ToList();
+
+        public List<HoaDon> GetHoaDonFilter(string mahd, string from, string to)
+        {
+            DateTime dtFrom = DateTime.ParseExact(from, @"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture);
+            DateTime dtTo = DateTime.ParseExact(to, @"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture);
+            return mahd.Equals("") ? computerStoreEntities.HoaDons.Where(hd => hd.NgayLap >= dtFrom &&
+                                                             hd.NgayLap <= dtTo).ToList() :
+
+                                     computerStoreEntities.HoaDons.Where(hd => hd.MaHD.Contains(mahd) &&
+                                                             (hd.NgayLap >= dtFrom &&
+                                                             hd.NgayLap <= dtTo)).ToList();
+        }
     }
 }

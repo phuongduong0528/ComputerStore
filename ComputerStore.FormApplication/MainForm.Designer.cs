@@ -93,7 +93,8 @@
             // 
             this.qLHóaĐơnToolStripMenuItem.Name = "qLHóaĐơnToolStripMenuItem";
             this.qLHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.qLHóaĐơnToolStripMenuItem.Text = "QL Hóa đơn";
+            this.qLHóaĐơnToolStripMenuItem.Text = "Xem hóa đơn";
+            this.qLHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.qLHóaĐơnToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
