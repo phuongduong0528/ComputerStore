@@ -119,13 +119,14 @@
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.aToolStripMenuItem.Text = "Quản lý";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // bToolStripMenuItem
             // 
             this.bToolStripMenuItem.Name = "bToolStripMenuItem";
-            this.bToolStripMenuItem.Size = new System.Drawing.Size(140, 24);
+            this.bToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.bToolStripMenuItem.Text = "Bảo hành";
             // 
             // thốngKêToolStripMenuItem

@@ -18,12 +18,14 @@ namespace Test
         [TestMethod]
         public void TestMethod1()
         {
-            //SellingService sellingService = new SellingService();
-            //MatHangService matHangService = new MatHangService();
-            //var x = sellingService.GetHoaDonFilter("0","01/01/1900","28/11/2018");
-            DateTime d = DateTime.Now;
-            var y = d.ToString(@"dd/MM/yyyy HH\:mm\:ss");
-            d = DateTime.ParseExact("27/11/2018 00:00:59", @"dd/MM/yyyy HH\:mm\:ss",CultureInfo.InvariantCulture);
+            KhachHangDto khdto = new KhachHangDto();
+            khdto.TenKH = "Nguyen Van Ba";
+            khdto.NgaySinh = "12/12/1995";
+            khdto.DiaChi = "Ha Noi";
+            khdto.Email = "ba987@yahoo.com";
+            khdto.Sdt = "0987412563";
+            KhachHangService khachHangService = new KhachHangService();
+            khachHangService.AddKhachHang(khdto);
         }
     }
 }

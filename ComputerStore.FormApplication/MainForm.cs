@@ -15,6 +15,7 @@ namespace ComputerStore.FormApplication
         BanHangForm banHangForm;
         QuanLyHangForm quanLyHangForm;
         XemHoaDonForm xemHoaDonForm;
+        QuanLyKhachForm quanLyKhachForm;
         string idUser;
         public MainForm()
         {
@@ -88,6 +89,26 @@ namespace ComputerStore.FormApplication
         private void XemHoaDonForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             xemHoaDonForm = null;
+        }
+
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(quanLyKhachForm == null)
+            {
+                quanLyKhachForm = new QuanLyKhachForm();
+                quanLyKhachForm.FormClosed += QuanLyKhachForm_FormClosed;
+                quanLyKhachForm.MdiParent = this;
+                quanLyKhachForm.Show();
+            }
+            else
+            {
+                quanLyKhachForm.BringToFront();
+            }
+        }
+
+        private void QuanLyKhachForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            quanLyKhachForm = null;
         }
     }
 }

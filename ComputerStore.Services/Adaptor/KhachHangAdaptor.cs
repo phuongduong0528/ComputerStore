@@ -35,7 +35,8 @@ namespace ComputerStore.Services.Adaptor
 
         public KhachHang ToKhachHangEntity(KhachHangDto khachHangDto)
         {
-            string[] name = khachHangDto.TenKH.Split(' ');
+            string[] name = new string[5];
+            name = khachHangDto.TenKH.Split(' ');
             string hodem = "";
             foreach(string a in name.Take(name.Length - 1))
             {

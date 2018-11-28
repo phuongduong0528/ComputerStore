@@ -17,7 +17,6 @@ namespace ComputerStore.Services
         [WebInvoke(
             UriTemplate = "/KhachHang",
             Method = "POST",
-            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
         bool AddKhachHang(KhachHangDto khachHangDto);
 

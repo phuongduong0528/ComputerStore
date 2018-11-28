@@ -23,6 +23,7 @@ namespace ComputerStore.FormApplication
         List<MatHangDuocBanDto> listTempMHDB;
         List<MatHangDto> tempMatHang;
         List<MatHangDto> mathangDisplay;
+        QuanLyKhachForm quanLyKhachForm;
         public BanHangForm()
         {
             InitializeComponent();
@@ -221,6 +222,22 @@ namespace ComputerStore.FormApplication
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (quanLyKhachForm == null)
+            {
+                quanLyKhachForm = new QuanLyKhachForm();
+                quanLyKhachForm.MdiParent = this.ParentForm;
+                quanLyKhachForm.FormClosed += QuanLyKhachForm_FormClosed;
+                quanLyKhachForm.Show();
+            }
+        }
+
+        private void QuanLyKhachForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            quanLyKhachForm = null;
         }
     }
 }
