@@ -17,7 +17,7 @@ namespace ComputerStore.FormApplication
     {
         KhachHangController khachHangController;
         SellingController sellingController;
-        
+
         public QuanLyKhachForm()
         {
             InitializeComponent();
@@ -82,6 +82,7 @@ namespace ComputerStore.FormApplication
                 if (respond)
                 {
                     MessageBox.Show("Đã thêm người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshTableKH();
                 }
                 else
                 {
@@ -91,6 +92,7 @@ namespace ComputerStore.FormApplication
                         if (respond)
                         {
                             MessageBox.Show("Đã thêm người dùng thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            RefreshTableKH();
                             return;
                         }
                     }
@@ -101,6 +103,16 @@ namespace ComputerStore.FormApplication
             {
                 MessageBox.Show("Date format must be [dd/MM/yyyy]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void btnlLichsu_Click(object sender, EventArgs e)
+        {
+            await RefreshDgvTThoadonKH();
+        }
+
+        private void btnBaohanh_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

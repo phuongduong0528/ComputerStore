@@ -23,10 +23,12 @@ namespace ComputerStore.Services.Adaptor
             try
             {
                 hoaDonDto.ThanhTien = hoaDon.ThanhTien.Value;
+                hoaDonDto.TienKhachtra = hoaDon.TienKhachTra.Value;
             }
             catch(Exception ex)
             {
                 hoaDonDto.ThanhTien = 0;
+                hoaDonDto.TienKhachtra = 0;
             }
             return hoaDonDto;
         }
@@ -49,6 +51,7 @@ namespace ComputerStore.Services.Adaptor
             hoaDon.MaKH = hoaDonDto.MaKH;
             hoaDon.NgayLap = DateTime.ParseExact(hoaDonDto.NgayLap, @"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture);
             hoaDon.ThanhTien = hoaDonDto.ThanhTien;
+            hoaDon.TienKhachTra = hoaDonDto.ThanhTien;
             return hoaDon;
         }
     }

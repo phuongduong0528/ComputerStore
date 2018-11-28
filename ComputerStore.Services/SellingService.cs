@@ -15,13 +15,14 @@ namespace ComputerStore.Services
     {
         MatHangDuocBanAdaptor matHangDuocBanAdaptor = new MatHangDuocBanAdaptor();
         HoaDonAdaptor hoaDonAdaptor = new HoaDonAdaptor();
+        BaoHanhAdaptor baoHanhAdaptor = new BaoHanhAdaptor();
         SellingManager sellingManager;
 
         SellingManager SellingManager => sellingManager ?? (sellingManager = new SellingManager());
 
-        public bool BanHang(List<MatHangDuocBanDto> mhdbDtos, string idNV, string idKH)
+        public bool BanHang(List<MatHangDuocBanDto> mhdbDtos, string idNV, string idKH, long tienkhachtra)
         {
-            return SellingManager.BanHang(matHangDuocBanAdaptor.ToListMatHangDuocBanEntity(mhdbDtos), idNV, idKH);
+            return SellingManager.BanHang(matHangDuocBanAdaptor.ToListMatHangDuocBanEntity(mhdbDtos), idNV, idKH, tienkhachtra);
         }
 
         //public MatHangDuocBanDto CreateTempMatHangDuocBan(string id, int km)
@@ -32,6 +33,11 @@ namespace ComputerStore.Services
         public List<HoaDonDto> GetAllHoaDon()
         {
             return hoaDonAdaptor.GetListHoaDonDto(SellingManager.GetAllHoaDon());
+        }
+
+        public List<BaoHanhDto> GetBaoHanhByKhachHang(string makh)
+        {
+            return baoHanhAdaptor.GetListBaoHanhDto(SellingManager.GetBaoHanhByKhachHang(makh));
         }
 
         public HoaDonDto GetHoaDon(string id)

@@ -24,6 +24,8 @@ namespace ComputerStore.Manager.Manager
                 baoHanh.MaKH = maKH;
                 baoHanh.NgayKichHoatBH = DateTime.Now;
                 baoHanh.NgayKetThucBH = baoHanh.NgayKichHoatBH.Value.Add(duration);
+                computerStoreEntities.BaoHanhs.Add(baoHanh);
+                computerStoreEntities.SaveChanges();
                 return true;
             }
             catch(Exception e)
@@ -44,6 +46,7 @@ namespace ComputerStore.Manager.Manager
                     newHD.MaKH = hoaDon.MaKH;
                     newHD.NgayLap = hoaDon.NgayLap;
                     newHD.ThanhTien = hoaDon.ThanhTien;
+                    newHD.TienKhachTra = hoaDon.TienKhachTra;
                     computerStoreEntities.HoaDons.Add(newHD);
                     computerStoreEntities.SaveChanges();
                     return true;
@@ -81,7 +84,7 @@ namespace ComputerStore.Manager.Manager
             }
         }
         
-        public bool BanHang(List<MatHangDuocBan> mhdb, string maNV, string maKH)
+        public bool BanHang(List<MatHangDuocBan> mhdb, string maNV, string maKH, long tienkhachtra)
         {
             HoaDon hoaDon = new HoaDon();
             long? total = 0;
@@ -91,6 +94,7 @@ namespace ComputerStore.Manager.Manager
                 hoaDon.MaKH = maKH;
                 hoaDon.MaNV = maNV;
                 hoaDon.NgayLap = DateTime.Now;
+                hoaDon.TienKhachTra = tienkhachtra;
                 AddHoaDon(hoaDon);
                 foreach (MatHangDuocBan mh in mhdb)
                 {
@@ -102,6 +106,11 @@ namespace ComputerStore.Manager.Manager
                     mh.ID = (computerStoreEntities.MatHangDuocBans.Count() + 1).ToString("D10");
                     mh.MaHD = hoaDon.MaHD;
                     AddMatHangDuocBan(mh);
+
+                    if (!hoaDon.MaKH.Equals("0000000000"))
+                    {
+                        AddBaoHanh(mh.MaSP, hoaDon.MaKH, new TimeSpan(365, 0, 0, 0));
+                    }
                 }
 
                 computerStoreEntities = new ComputerStoreEntities();
@@ -182,6 +191,11 @@ namespace ComputerStore.Manager.Manager
                                      computerStoreEntities.HoaDons.Where(hd => hd.MaHD.Contains(mahd) &&
                                                              (hd.NgayLap >= dtFrom &&
                                                              hd.NgayLap <= dtTo)).ToList();
+        }
+
+        public List<BaoHanh> GetBaoHanhByKhachHang(string makh)
+        {
+            return computerStoreEntities.BaoHanhs.Where(bh => bh.MaKH.Equals(makh)).ToList();
         }
     }
 }

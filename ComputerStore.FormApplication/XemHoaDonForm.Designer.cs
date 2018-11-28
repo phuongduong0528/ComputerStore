@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbxMahd = new System.Windows.Forms.TextBox();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             this.dgvSanphamban = new System.Windows.Forms.DataGridView();
             this.lblNgaymua = new System.Windows.Forms.Label();
             this.lblTong = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
+            this.splitContainer1.Panel2.Controls.Add(this.btnExportExcel);
             this.splitContainer1.Panel2.Controls.Add(this.dgvSanphamban);
             this.splitContainer1.Panel2.Controls.Add(this.lblNgaymua);
             this.splitContainer1.Panel2.Controls.Add(this.lblTong);
@@ -169,6 +171,21 @@
             this.txtbxMahd.Size = new System.Drawing.Size(126, 27);
             this.txtbxMahd.TabIndex = 0;
             this.txtbxMahd.TextChanged += new System.EventHandler(this.txtbxMahd_TextChanged);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportExcel.Image = global::ComputerStore.FormApplication.Properties.Resources.iconfinder_logo_brand_brands_logos_excel_2993694__3_;
+            this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportExcel.Location = new System.Drawing.Point(310, 414);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(126, 45);
+            this.btnExportExcel.TabIndex = 3;
+            this.btnExportExcel.Text = "Xuất Excel";
+            this.btnExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // dgvSanphamban
             // 
@@ -283,5 +300,6 @@
         private System.Windows.Forms.Label lblSanpham;
         private System.Windows.Forms.Label lblKhachhang;
         private System.Windows.Forms.Label lblNhanvien;
+        private System.Windows.Forms.Button btnExportExcel;
     }
 }

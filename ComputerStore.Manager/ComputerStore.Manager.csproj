@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201811271018574_FixHoaDonTableDataTypeDateTime.Designer.cs">
       <DependentUpon>201811271018574_FixHoaDonTableDataTypeDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811281139314_AddColumnInHoaDonCTienKhachTra.cs" />
+    <Compile Include="Migrations\201811281139314_AddColumnInHoaDonCTienKhachTra.Designer.cs">
+      <DependentUpon>201811281139314_AddColumnInHoaDonCTienKhachTra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaoHanh.cs" />
     <Compile Include="Models\ComputerStoreEntities.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811271018574_FixHoaDonTableDataTypeDateTime.resx">
       <DependentUpon>201811271018574_FixHoaDonTableDataTypeDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281139314_AddColumnInHoaDonCTienKhachTra.resx">
+      <DependentUpon>201811281139314_AddColumnInHoaDonCTienKhachTra.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

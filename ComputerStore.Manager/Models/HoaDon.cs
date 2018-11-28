@@ -32,6 +32,8 @@ namespace ComputerStore.Manager.Models
 
         public long? ThanhTien { get; set; }
 
+        public long? TienKhachTra { get; set; }
+
         public virtual KhachHang KhachHang { get; set; }
 
         public virtual NhanVien NhanVien { get; set; }

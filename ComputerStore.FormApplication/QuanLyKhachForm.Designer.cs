@@ -99,7 +99,7 @@
             // 
             this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.Location = new System.Drawing.Point(388, 97);
+            this.btnSua.Location = new System.Drawing.Point(238, 97);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(76, 33);
             this.btnSua.TabIndex = 1;
@@ -111,7 +111,7 @@
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Location = new System.Drawing.Point(313, 97);
+            this.btnThem.Location = new System.Drawing.Point(388, 97);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(76, 33);
             this.btnThem.TabIndex = 1;
@@ -123,7 +123,7 @@
             // 
             this.btnNhaplai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNhaplai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhaplai.Location = new System.Drawing.Point(238, 97);
+            this.btnNhaplai.Location = new System.Drawing.Point(313, 97);
             this.btnNhaplai.Name = "btnNhaplai";
             this.btnNhaplai.Size = new System.Drawing.Size(76, 33);
             this.btnNhaplai.TabIndex = 1;
@@ -223,6 +223,7 @@
             this.btnBaohanh.TabIndex = 1;
             this.btnBaohanh.Text = "Xem bảo hành";
             this.btnBaohanh.UseVisualStyleBackColor = true;
+            this.btnBaohanh.Click += new System.EventHandler(this.btnBaohanh_Click);
             // 
             // btnlLichsu
             // 
@@ -233,6 +234,7 @@
             this.btnlLichsu.TabIndex = 1;
             this.btnlLichsu.Text = "Xem lịch sử mua hàng";
             this.btnlLichsu.UseVisualStyleBackColor = true;
+            this.btnlLichsu.Click += new System.EventHandler(this.btnlLichsu_Click);
             // 
             // dgvTTkhach
             // 

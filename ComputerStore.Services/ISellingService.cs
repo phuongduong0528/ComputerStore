@@ -51,6 +51,12 @@ namespace ComputerStore.Services
             Method = "POST",
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             ResponseFormat = WebMessageFormat.Json)]
-        bool BanHang(List<MatHangDuocBanDto> mhdbDtos, string idNV, string idKH);
+        bool BanHang(List<MatHangDuocBanDto> mhdbDtos, string idNV, string idKH, long tienkhachtra);
+
+        [OperationContract]
+        [WebGet(
+            UriTemplate = "/BaoHanh/{makh}",
+            ResponseFormat = WebMessageFormat.Json)]
+        List<BaoHanhDto> GetBaoHanhByKhachHang(string makh);
     }
 }

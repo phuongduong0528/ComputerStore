@@ -52,6 +52,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adaptor\BaoHanhAdaptor.cs" />
     <Compile Include="Adaptor\HangSanXuatAdaptor.cs" />
     <Compile Include="Adaptor\HoaDonAdaptor.cs" />
     <Compile Include="Adaptor\KhachHangAdaptor.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Adaptor\NhanVienAdaptor.cs" />
     <Compile Include="Adaptor\NhaPhanPhoiAdaptor.cs" />
     <Compile Include="Adaptor\SanPhamAdaptor.cs" />
+    <Compile Include="Dto\BaoHanhDto.cs" />
     <Compile Include="Dto\HangSanXuatDto.cs" />
     <Compile Include="Dto\HoaDonDto.cs" />
     <Compile Include="Dto\KhachHangDto.cs" />

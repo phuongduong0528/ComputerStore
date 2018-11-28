@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OfficeOpenXml;
 
 namespace ComputerStore.FormApplication
 {
@@ -168,26 +169,59 @@ namespace ComputerStore.FormApplication
 
         private async void buttonToHd_Click(object sender, EventArgs e)
         {
-            dgvHoadon.DataSource = mathangDisplay;
-            dgvHoadon.Columns[5].Visible = false;
+            long tienkhachtra = 0;
+            try
+            {
+                tienkhachtra = Convert.ToInt64(txtbxTienkhachtra.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Format Error","",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             NhanVienController nvc = new NhanVienController(Ultilities.ip, Ultilities.port);
             NhanVienDto nvTemp = await nvc.GetNhanVien(userId);
-            lblNV.Text = $"Nhân viên: {nvTemp.TenNV}";
-            lblNgay.Text = $"Ngày lập: {DateTime.Now.ToString("dd/MM/yyyy")}";
+            
             long tongTien = 0;
+            
             foreach(var a in mathangDisplay)
             {
                 tongTien += a.GiaNiemYet;
             }
+
             lblTong.Text = $"Tổng:  {tongTien.ToString("N0")} VND";
+
+            if ((tienkhachtra - tongTien) < 0)
+            {
+                MessageBox.Show("So tien khong du", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            dgvHoadon.DataSource = mathangDisplay;
+            dgvHoadon.Columns[5].Visible = false;
+            lblNV.Text = $"Nhân viên: {nvTemp.TenNV}";
+            lblNgay.Text = $"Ngày lập: {DateTime.Now.ToString("dd/MM/yyyy")}";
+            
+            lblTienkhachtra.Text = $"Tiền khách trả: {tienkhachtra.ToString("N0")} VND";
+            txtbxTralaikhach.Text = $"Trả lại khách: {(tienkhachtra - tongTien).ToString("N0")} VND";
         }
 
         private async void btnBanHang_Click(object sender, EventArgs e)
         {
-            
+            long tienkhachtra = 0;
+            try
+            {
+                tienkhachtra = Convert.ToInt64(txtbxTienkhachtra.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Format Error", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 string khachHangId;
+
                 if (checkBox1.CheckState == CheckState.Checked)
                 {
                     khachHangId = "0000000000";
@@ -198,7 +232,7 @@ namespace ComputerStore.FormApplication
                 }
                 var a = await sellingController.GetAllHoaDon();
                 int count = a.Count();
-                await sellingController.BanHangAsync(listTempMHDB, userId, khachHangId);
+                await sellingController.BanHangAsync(listTempMHDB, userId, khachHangId, tienkhachtra);
                 a = await sellingController.GetAllHoaDon();
                 int currentCount = a.Count();
                 if(currentCount > count)

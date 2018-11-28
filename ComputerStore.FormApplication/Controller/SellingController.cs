@@ -56,7 +56,7 @@ namespace ComputerStore.FormApplication.Controller
             return respond;
         }
 
-        public async Task<bool> BanHangAsync(List<MatHangDuocBanDto> pmhdbDtos, string pidNV, string pidKH)
+        public async Task<bool> BanHangAsync(List<MatHangDuocBanDto> pmhdbDtos, string pidNV, string pidKH, long ptienkhachtra)
         {
             RequestController<bool> controller = new RequestController<bool>();
             controller.Url = baseUrl + "/BanHang";
@@ -80,11 +80,20 @@ namespace ComputerStore.FormApplication.Controller
             {
                 mhdbDtos = list,
                 idNV = pidNV,
-                idKH = pidKH
+                idKH = pidKH,
+                tienkhachtra = ptienkhachtra
             };
             var test = JsonConvert.SerializeObject(obj);
             bool a = await controller.SubmitDataJson(RestSharp.Method.POST, JsonConvert.SerializeObject(obj));
             return a;
+        }
+
+        public async Task<List<BaoHanhDto>> GetBaoHanhByKhachHang(string pmakh)
+        {
+            RequestController<List<BaoHanhDto>> controller = new RequestController<List<BaoHanhDto>>();
+            controller.Url = baseUrl + "/BaoHanh" + pmakh;
+            List<BaoHanhDto> respond =  await controller.GetData();
+            return respond;
         }
     }
 }

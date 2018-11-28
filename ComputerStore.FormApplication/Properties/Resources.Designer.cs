@@ -69,5 +69,25 @@ namespace ComputerStore.FormApplication.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_logo_brand_brands_logos_excel_2993694__2_ {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_logo_brand_brands_logos_excel_2993694 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_logo_brand_brands_logos_excel_2993694__3_ {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_logo_brand_brands_logos_excel_2993694 (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -25,6 +25,9 @@ namespace ComputerStore.Services.Dto
         [DataMember(Name = "thanhtien", Order = 4)]
         public long ThanhTien { get; set; }
 
+        [DataMember(Name = "tienkhachtra", Order = 5)]
+        public long TienKhachtra { get; set; }
+
         [DataMember(Name = "manv", Order = 5)]
         public string MaNV { get; set; }
 
