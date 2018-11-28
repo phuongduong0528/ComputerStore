@@ -79,8 +79,8 @@ namespace ComputerStore.FormApplication
             }
             else
             {
-                int row = dgvSanPham.CurrentCell.RowIndex;
-                string item = dgvSanPham.Rows[row].Cells[2].Value.ToString();
+                int row = dgvMatHang.CurrentCell.RowIndex;
+                string item = dgvMatHang.Rows[row].Cells[4].Value.ToString();
                 UpdateSanPhamForm uspf = new UpdateSanPhamForm(null, item);
                 uspf.FormClosed += Uspf_FormClosed;
                 uspf.ShowDialog();
