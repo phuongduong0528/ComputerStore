@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComputerStore.FormApplication.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace ComputerStore.FormApplication
         QuanLyHangForm quanLyHangForm;
         XemHoaDonForm xemHoaDonForm;
         QuanLyKhachForm quanLyKhachForm;
+        QuanLyNguoiDungForm quanLyNguoiDungForm;
         string idUser;
         public MainForm()
         {
@@ -28,9 +30,14 @@ namespace ComputerStore.FormApplication
             this.idUser = idUser;
         }
         
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
-
+            NhanVienController nhanVienController = new NhanVienController(Ultilities.ip,Ultilities.port);
+            Services.Dto.NhanVienDto nv = await nhanVienController.GetNhanVien(Ultilities.idUser);
+            if (nv.QuyenHan.Equals("Normal"))
+            {
+                ngườiQuảnTrịToolStripMenuItem.Visible = false;
+            }
         }
 
         private void bánHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,6 +116,27 @@ namespace ComputerStore.FormApplication
         private void QuanLyKhachForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             quanLyKhachForm = null;
+        }
+
+        private void ngườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (quanLyNguoiDungForm == null)
+            {
+                quanLyNguoiDungForm = new QuanLyNguoiDungForm();
+                quanLyNguoiDungForm.MdiParent = this;
+                quanLyNguoiDungForm.FormClosed += QuanLyNguoiDungForm_FormClosed;
+                quanLyNguoiDungForm.Show();
+            }
+            else
+            {
+                quanLyNguoiDungForm.BringToFront();
+            }
+            
+        }
+
+        private void QuanLyNguoiDungForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            quanLyNguoiDungForm = null;
         }
     }
 }

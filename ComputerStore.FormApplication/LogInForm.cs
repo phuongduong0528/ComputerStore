@@ -81,6 +81,7 @@ namespace ComputerStore.FormApplication
                 nhanVienController.Authenticate(txtbxId.Text,Ultilities.ToHashString(txtbxPass.Text));
             if(respond == 1)
             {
+                Ultilities.idUser = txtbxId.Text;
                 mainForm = new MainForm(txtbxId.Text);
                 mainForm.FormClosed += new FormClosedEventHandler(mainform_Closed);
                 mainForm.Show();
