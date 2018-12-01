@@ -205,5 +205,15 @@ namespace ComputerStore.Manager.Manager
         {
             return computerStoreEntities.BaoHanhs.Where(bh => bh.MaKH.Equals(makh)).ToList();
         }
+
+        public List<MatHangDuocBan> GetMatHangDuocBanByTime(int month, int year)
+        {
+            return month == 0 ? computerStoreEntities.MatHangDuocBans
+                                .Where(mhdb => mhdb.HoaDon.NgayLap.Value.Year.Equals(year)).ToList() :
+
+                                computerStoreEntities.MatHangDuocBans
+                                .Where(mhdb => mhdb.HoaDon.NgayLap.Value.Month.Equals(month) 
+                                && mhdb.HoaDon.NgayLap.Value.Year.Equals(year)).ToList();
+        }
     }
 }

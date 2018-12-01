@@ -104,7 +104,8 @@ namespace ComputerStore.FormApplication.Controller
                 khuyenmai = matHangDuocBanDto.KhuyenMai,
                 gia = matHangDuocBanDto.KhuyenMai,
                 mahd = matHangDuocBanDto.MaHD,
-                masp = matHangDuocBanDto.MaSP
+                masp = matHangDuocBanDto.MaSP,
+                mamh = matHangDuocBanDto.MaMH
             };
             return JsonConvert.SerializeObject(o);
         }

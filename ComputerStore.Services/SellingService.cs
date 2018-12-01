@@ -54,5 +54,10 @@ namespace ComputerStore.Services
         {
             return matHangDuocBanAdaptor.GetListMatHangDuocBanDto(SellingManager.GetMatHangDuocBansByHoaDon(idHD));
         }
+
+        public List<MatHangDuocBanDto> GetMatHangDuocBanByTime(int month, int year)
+        {
+            return matHangDuocBanAdaptor.GetListMatHangDuocBanDto(SellingManager.GetMatHangDuocBanByTime(month, year));
+        }
     }
 }

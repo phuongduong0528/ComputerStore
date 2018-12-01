@@ -28,23 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.thangTab = new System.Windows.Forms.TabPage();
             this.lblSoluotmuahang = new System.Windows.Forms.Label();
             this.lblDoanhthubanhang = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxNam = new System.Windows.Forms.ComboBox();
             this.cbxThang = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblSoluotmuahang2 = new System.Windows.Forms.Label();
             this.lblDoanhthubanhang2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblSosanphamban = new System.Windows.Forms.Label();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblSosanphamban2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.thangTab.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -63,10 +70,11 @@
             // 
             // thangTab
             // 
+            this.thangTab.Controls.Add(this.chart2);
+            this.thangTab.Controls.Add(this.lblSosanphamban);
             this.thangTab.Controls.Add(this.lblSoluotmuahang);
             this.thangTab.Controls.Add(this.lblDoanhthubanhang);
             this.thangTab.Controls.Add(this.label1);
-            this.thangTab.Controls.Add(this.cbxNam);
             this.thangTab.Controls.Add(this.cbxThang);
             this.thangTab.Location = new System.Drawing.Point(4, 29);
             this.thangTab.Name = "thangTab";
@@ -103,18 +111,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tháng";
             // 
-            // cbxNam
-            // 
-            this.cbxNam.FormattingEnabled = true;
-            this.cbxNam.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020"});
-            this.cbxNam.Location = new System.Drawing.Point(128, 6);
-            this.cbxNam.Name = "cbxNam";
-            this.cbxNam.Size = new System.Drawing.Size(78, 28);
-            this.cbxNam.TabIndex = 0;
-            // 
             // cbxThang
             // 
             this.cbxThang.FormattingEnabled = true;
@@ -139,6 +135,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblSosanphamban2);
+            this.tabPage2.Controls.Add(this.chart3);
             this.tabPage2.Controls.Add(this.comboBox1);
             this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.Controls.Add(this.lblSoluotmuahang2);
@@ -151,23 +149,36 @@
             this.tabPage2.Text = "Năm";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020"});
+            this.comboBox1.Location = new System.Drawing.Point(6, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(78, 28);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisX2.IsMarginVisible = false;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY.IsMarginVisible = false;
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY2.IsMarginVisible = false;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 100F;
-            chartArea1.Position.Width = 100F;
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisX.IsMarginVisible = false;
+            chartArea3.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisX2.IsMarginVisible = false;
+            chartArea3.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisY.IsMarginVisible = false;
+            chartArea3.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea3.AxisY2.IsMarginVisible = false;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 100F;
+            chartArea3.Position.Width = 100F;
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(3, 57);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
@@ -194,18 +205,71 @@
             this.lblDoanhthubanhang2.TabIndex = 3;
             this.lblDoanhthubanhang2.Text = "Doanh thu bán hàng:";
             // 
-            // comboBox1
+            // lblSosanphamban
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(78, 28);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.lblSosanphamban.AutoSize = true;
+            this.lblSosanphamban.Location = new System.Drawing.Point(12, 123);
+            this.lblSosanphamban.Name = "lblSosanphamban";
+            this.lblSosanphamban.Size = new System.Drawing.Size(126, 20);
+            this.lblSosanphamban.TabIndex = 3;
+            this.lblSosanphamban.Text = "Số sản phẩm bán:";
+            // 
+            // chart2
+            // 
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX.IsMarginVisible = false;
+            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisX2.IsMarginVisible = false;
+            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.IsMarginVisible = false;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY2.IsMarginVisible = false;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 100F;
+            chartArea1.Position.Width = 100F;
+            this.chart2.ChartAreas.Add(chartArea1);
+            this.chart2.Location = new System.Drawing.Point(0, 146);
+            this.chart2.Name = "chart2";
+            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            this.chart2.Size = new System.Drawing.Size(604, 25);
+            this.chart2.TabIndex = 6;
+            this.chart2.Text = "chart2";
+            // 
+            // chart3
+            // 
+            this.chart3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisX2.IsMarginVisible = false;
+            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.IsMarginVisible = false;
+            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY2.IsMarginVisible = false;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 100F;
+            chartArea2.Position.Width = 100F;
+            this.chart3.ChartAreas.Add(chartArea2);
+            this.chart3.Location = new System.Drawing.Point(0, 157);
+            this.chart3.Name = "chart3";
+            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            this.chart3.Size = new System.Drawing.Size(604, 25);
+            this.chart3.TabIndex = 7;
+            this.chart3.Text = "chart3";
+            // 
+            // lblSosanphamban2
+            // 
+            this.lblSosanphamban2.AutoSize = true;
+            this.lblSosanphamban2.Location = new System.Drawing.Point(12, 134);
+            this.lblSosanphamban2.Name = "lblSosanphamban2";
+            this.lblSosanphamban2.Size = new System.Drawing.Size(126, 20);
+            this.lblSosanphamban2.TabIndex = 8;
+            this.lblSosanphamban2.Text = "Số sản phẩm bán:";
             // 
             // ThongKeForm
             // 
@@ -224,6 +288,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,11 +302,14 @@
         private System.Windows.Forms.Label lblSoluotmuahang;
         private System.Windows.Forms.Label lblDoanhthubanhang;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxNam;
         private System.Windows.Forms.ComboBox cbxThang;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label lblSoluotmuahang2;
         private System.Windows.Forms.Label lblDoanhthubanhang2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblSosanphamban;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.Label lblSosanphamban2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
     }
 }

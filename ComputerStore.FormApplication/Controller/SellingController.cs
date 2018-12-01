@@ -95,5 +95,18 @@ namespace ComputerStore.FormApplication.Controller
             List<BaoHanhDto> respond =  await controller.GetData();
             return respond;
         }
+
+        public async Task<List<MatHangDuocBanDto>> GetMatHangDuocBanByTime(int pmonth, int pyear)
+        {
+            RequestController<List<MatHangDuocBanDto>> controller = new RequestController<List<MatHangDuocBanDto>>();
+            controller.Url = baseUrl + $"/MHDB/Time";
+            object obj = new
+            {
+                month = pmonth,
+                year = pyear
+            };
+            List<MatHangDuocBanDto> respond = await controller.SubmitDataJson(RestSharp.Method.POST, JsonConvert.SerializeObject(obj));
+            return respond;
+        }
     }
 }

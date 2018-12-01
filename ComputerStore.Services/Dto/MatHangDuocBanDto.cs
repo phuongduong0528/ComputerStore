@@ -30,5 +30,8 @@ namespace ComputerStore.Services.Dto
 
         [DataMember(Name = "masp", Order = 6)]
         public string MaSP { get; set; }
+
+        [DataMember(Name = "mamh", Order = 7)]
+        public string MaMH { get; set; }
     }
 }

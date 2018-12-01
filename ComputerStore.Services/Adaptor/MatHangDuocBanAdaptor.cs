@@ -19,6 +19,9 @@ namespace ComputerStore.Services.Adaptor
             matHangDuocBanDto.KhuyenMai = matHangDuocBan.KhuyenMai.Value;
             matHangDuocBanDto.Gia = matHangDuocBan.SanPham.MatHang.GiaNiemYet.Value -
                 ((matHangDuocBan.SanPham.MatHang.GiaNiemYet.Value / 100) * matHangDuocBanDto.KhuyenMai);
+            matHangDuocBanDto.MaHD = matHangDuocBan.MaHD;
+            matHangDuocBanDto.MaSP = matHangDuocBan.MaSP;
+            matHangDuocBanDto.MaMH = matHangDuocBan.SanPham.MaMH;
             return matHangDuocBanDto;
         }
 

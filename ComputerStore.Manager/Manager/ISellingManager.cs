@@ -20,5 +20,6 @@ namespace ComputerStore.Manager.Manager
         bool BanHang(List<MatHangDuocBan> mhdb, string maNV, string maKH, long tienkhachtra);
         bool AddBaoHanh(string maSP, string maKH, TimeSpan duration);
         List<BaoHanh> GetBaoHanhByKhachHang(string makh);
+        List<MatHangDuocBan> GetMatHangDuocBanByTime(int month, int year);
     }
 }

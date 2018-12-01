@@ -58,5 +58,13 @@ namespace ComputerStore.Services
             UriTemplate = "/BaoHanh/{makh}",
             ResponseFormat = WebMessageFormat.Json)]
         List<BaoHanhDto> GetBaoHanhByKhachHang(string makh);
+
+        [OperationContract]
+        [WebInvoke(
+            UriTemplate = "/MHDB/Time",
+            Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            ResponseFormat = WebMessageFormat.Json)]
+        List<MatHangDuocBanDto> GetMatHangDuocBanByTime(int month, int year);
     }
 }
