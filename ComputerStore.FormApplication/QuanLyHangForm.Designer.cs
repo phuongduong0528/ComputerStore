@@ -36,11 +36,12 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.cbxHsx = new System.Windows.Forms.ComboBox();
             this.dgvMatHang = new System.Windows.Forms.DataGridView();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cbxTinhtrang = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -62,7 +63,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(686, 127);
+            this.tabControl1.Size = new System.Drawing.Size(754, 127);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -75,7 +76,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(678, 94);
+            this.tabPage1.Size = new System.Drawing.Size(746, 94);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Quản lý";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -160,6 +161,19 @@
             this.tabPage2.Text = "Công cụ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ComputerStore.FormApplication.Properties.Resources.iconfinder_logo_brand_brands_logos_excel_2993694__1_;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(7, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 81);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Xuất Excel";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -175,9 +189,10 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.cbxTinhtrang);
             this.splitContainer1.Panel2.Controls.Add(this.dgvSanPham);
-            this.splitContainer1.Size = new System.Drawing.Size(681, 255);
-            this.splitContainer1.SplitterDistance = 326;
+            this.splitContainer1.Size = new System.Drawing.Size(749, 324);
+            this.splitContainer1.SplitterDistance = 358;
             this.splitContainer1.TabIndex = 1;
             // 
             // cbxHsx
@@ -187,7 +202,7 @@
             this.cbxHsx.FormattingEnabled = true;
             this.cbxHsx.Location = new System.Drawing.Point(0, 4);
             this.cbxHsx.Name = "cbxHsx";
-            this.cbxHsx.Size = new System.Drawing.Size(320, 28);
+            this.cbxHsx.Size = new System.Drawing.Size(352, 28);
             this.cbxHsx.TabIndex = 1;
             this.cbxHsx.SelectedIndexChanged += new System.EventHandler(this.cbxHsx_SelectedIndexChanged);
             // 
@@ -200,7 +215,7 @@
             this.dgvMatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMatHang.Location = new System.Drawing.Point(0, 35);
             this.dgvMatHang.Name = "dgvMatHang";
-            this.dgvMatHang.Size = new System.Drawing.Size(320, 220);
+            this.dgvMatHang.Size = new System.Drawing.Size(352, 289);
             this.dgvMatHang.TabIndex = 0;
             this.dgvMatHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatHang_CellContentClick);
             // 
@@ -213,27 +228,27 @@
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSanPham.Location = new System.Drawing.Point(3, 35);
             this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.Size = new System.Drawing.Size(352, 220);
+            this.dgvSanPham.Size = new System.Drawing.Size(388, 289);
             this.dgvSanPham.TabIndex = 0;
             // 
-            // button1
+            // cbxTinhtrang
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::ComputerStore.FormApplication.Properties.Resources.iconfinder_logo_brand_brands_logos_excel_2993694__1_;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(7, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 81);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Xuất Excel";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.cbxTinhtrang.FormattingEnabled = true;
+            this.cbxTinhtrang.Items.AddRange(new object[] {
+            "*",
+            "OK",
+            "Sold"});
+            this.cbxTinhtrang.Location = new System.Drawing.Point(3, 5);
+            this.cbxTinhtrang.Name = "cbxTinhtrang";
+            this.cbxTinhtrang.Size = new System.Drawing.Size(384, 28);
+            this.cbxTinhtrang.TabIndex = 1;
+            this.cbxTinhtrang.SelectedIndexChanged += new System.EventHandler(this.cbxTinhtrang_SelectedIndexChanged);
             // 
             // QuanLyHangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 375);
+            this.ClientSize = new System.Drawing.Size(751, 444);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -270,5 +285,6 @@
         private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.ComboBox cbxHsx;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbxTinhtrang;
     }
 }

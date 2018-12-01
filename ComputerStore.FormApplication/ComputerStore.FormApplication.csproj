@@ -55,6 +55,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -112,6 +113,12 @@
     <Compile Include="QuanLyNguoiDungForm.Designer.cs">
       <DependentUpon>QuanLyNguoiDungForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThongKeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThongKeForm.Designer.cs">
+      <DependentUpon>ThongKeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateMatHangForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyNguoiDungForm.resx">
       <DependentUpon>QuanLyNguoiDungForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThongKeForm.resx">
+      <DependentUpon>ThongKeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateMatHangForm.resx">
       <DependentUpon>UpdateMatHangForm.cs</DependentUpon>

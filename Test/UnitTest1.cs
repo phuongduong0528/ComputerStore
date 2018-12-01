@@ -18,14 +18,8 @@ namespace Test
         [TestMethod]
         public void TestMethod1()
         {
-            KhachHangDto khdto = new KhachHangDto();
-            khdto.TenKH = "Nguyen Van Ba";
-            khdto.NgaySinh = "12/12/1995";
-            khdto.DiaChi = "Ha Noi";
-            khdto.Email = "ba987@yahoo.com";
-            khdto.Sdt = "0987412563";
-            KhachHangService khachHangService = new KhachHangService();
-            khachHangService.AddKhachHang(khdto);
+            string from = "20/1/2018 05:00:00";
+            DateTime dtFrom = DateTime.ParseExact(from, @"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture);
         }
     }
 }

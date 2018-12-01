@@ -35,6 +35,7 @@ namespace ComputerStore.FormApplication
                 cbxHsx.Items.Add(hsx.TenHSX);
             }
             cbxHsx.SelectedIndex = 0;
+            cbxTinhtrang.SelectedIndex = 0;
         }
 
         private async void RefreshData()
@@ -133,6 +134,31 @@ namespace ComputerStore.FormApplication
                 List<MatHangDto> z = await matHangController.GetAllMatHang();
                 z = z.Where(mh => mh.HangSanXuat.Equals(cbxHsx.SelectedItem.ToString())).ToList();
                 dgvMatHang.DataSource = z;
+            }
+        }
+
+        private async void cbxTinhtrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(cbxTinhtrang.SelectedIndex == 0)
+                {
+                    await RefreshDgvSanPham();
+                }
+                else
+                {
+                    List<SanPhamDto> temp;
+                    dgvSanPham.DataSource = null;
+                    int row = dgvMatHang.CurrentCell.RowIndex;
+                    string item = dgvMatHang.Rows[row].Cells[0].Value.ToString();
+                    temp = await matHangController.GetSanPhamByMatHang(item, 0);
+                    temp = temp.Where(sp => sp.TinhTrang.Equals(cbxTinhtrang.SelectedItem.ToString())).ToList();
+                    dgvSanPham.DataSource = temp;
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

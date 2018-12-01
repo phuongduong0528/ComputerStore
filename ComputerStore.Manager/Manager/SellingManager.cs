@@ -173,13 +173,21 @@ namespace ComputerStore.Manager.Manager
 
         public HoaDon GetHoaDon(string id) => computerStoreEntities.HoaDons.SingleOrDefault(hd => hd.MaHD.Equals(id));
 
-        public MatHangDuocBan GetMatHangDuocBan(string id) => computerStoreEntities.MatHangDuocBans
-                .SingleOrDefault(mhdb => mhdb.ID.Equals(id));
+        public MatHangDuocBan GetMatHangDuocBan(string id) => computerStoreEntities.MatHangDuocBans.SingleOrDefault(mhdb => mhdb.ID.Equals(id));
 
-        public List<MatHangDuocBan> GetMatHangDuocBansByHoaDon(string maHD) => computerStoreEntities.MatHangDuocBans
-                .Where(mhdb => mhdb.HoaDon.MaHD.Equals(maHD))
-                .OrderBy(mhdb => mhdb.HoaDon.NgayLap)
-                .ToList();
+        public List<MatHangDuocBan> GetMatHangDuocBansByHoaDon(string maHD)
+        {
+            if (maHD.Equals(""))
+            {
+                return computerStoreEntities.MatHangDuocBans
+                                    .OrderBy(mhdb => mhdb.HoaDon.NgayLap)
+                                    .ToList();
+            }
+            return computerStoreEntities.MatHangDuocBans
+                                    .Where(mhdb => mhdb.HoaDon.MaHD.Equals(maHD))
+                                    .OrderBy(mhdb => mhdb.HoaDon.NgayLap)
+                                    .ToList();
+        }
 
         public List<HoaDon> GetHoaDonFilter(string mahd, string from, string to)
         {

@@ -18,6 +18,7 @@ namespace ComputerStore.FormApplication
         XemHoaDonForm xemHoaDonForm;
         QuanLyKhachForm quanLyKhachForm;
         QuanLyNguoiDungForm quanLyNguoiDungForm;
+        ThongKeForm thongKeForm;
         string idUser;
         public MainForm()
         {
@@ -137,6 +138,26 @@ namespace ComputerStore.FormApplication
         private void QuanLyNguoiDungForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             quanLyNguoiDungForm = null;
+        }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(thongKeForm == null)
+            {
+                thongKeForm = new ThongKeForm();
+                thongKeForm.MdiParent = this;
+                thongKeForm.FormClosed += ThongKeForm_FormClosed;
+                thongKeForm.Show();
+            }
+            else
+            {
+                thongKeForm.BringToFront();
+            }
+        }
+
+        private void ThongKeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            thongKeForm = null;
         }
     }
 }
