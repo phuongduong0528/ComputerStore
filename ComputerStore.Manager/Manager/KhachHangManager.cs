@@ -44,6 +44,17 @@ namespace ComputerStore.Manager.Manager
 
         public List<KhachHang> GetAllKhachHang() => computerStoreEntities.KhachHangs.OrderBy(kh => kh.TenKH).ToList();
 
-        public KhachHang GetKhachHang(string maKH) => computerStoreEntities.KhachHangs.SingleOrDefault(kh => kh.MaKH.Equals(maKH));
+        public KhachHang GetKhachHang(string maKH)
+        {
+            try
+            {
+                KhachHang respond = computerStoreEntities.KhachHangs.Single(kh => kh.MaKH.Equals(maKH));
+                return respond;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

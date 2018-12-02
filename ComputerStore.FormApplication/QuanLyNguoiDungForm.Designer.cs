@@ -232,7 +232,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuanLyNguoiDungForm";
-            this.Text = "QuanLyNguoiDungForm";
+            this.Text = "Quản lý người dùng";
             this.Load += new System.EventHandler(this.QuanLyNguoiDungForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNguoidung)).EndInit();
             this.ResumeLayout(false);

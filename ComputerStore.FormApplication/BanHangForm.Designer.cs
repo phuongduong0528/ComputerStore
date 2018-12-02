@@ -30,6 +30,8 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.grpbChonhang = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtbxTienkhachtra = new System.Windows.Forms.TextBox();
             this.lstboxMatHang = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtbxKhuyenMai = new System.Windows.Forms.TextBox();
@@ -46,6 +48,8 @@
             this.cbxLoaiHang = new System.Windows.Forms.ComboBox();
             this.dgvMhdb = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtbxTralaikhach = new System.Windows.Forms.Label();
+            this.lblTienkhachtra = new System.Windows.Forms.Label();
             this.lblTong = new System.Windows.Forms.Label();
             this.lblNgay = new System.Windows.Forms.Label();
             this.lblNV = new System.Windows.Forms.Label();
@@ -55,10 +59,6 @@
             this.txtbxMKH = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnBanHang = new System.Windows.Forms.Button();
-            this.txtbxTienkhachtra = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblTienkhachtra = new System.Windows.Forms.Label();
-            this.txtbxTralaikhach = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,7 +86,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Size = new System.Drawing.Size(800, 495);
-            this.splitContainer1.SplitterDistance = 402;
+            this.splitContainer1.SplitterDistance = 342;
             this.splitContainer1.TabIndex = 2;
             // 
             // grpbChonhang
@@ -113,20 +113,42 @@
             this.grpbChonhang.Controls.Add(this.dgvMhdb);
             this.grpbChonhang.Location = new System.Drawing.Point(3, 3);
             this.grpbChonhang.Name = "grpbChonhang";
-            this.grpbChonhang.Size = new System.Drawing.Size(396, 489);
+            this.grpbChonhang.Size = new System.Drawing.Size(336, 489);
             this.grpbChonhang.TabIndex = 1;
             this.grpbChonhang.TabStop = false;
             this.grpbChonhang.Text = "Chọn hàng";
             this.grpbChonhang.Enter += new System.EventHandler(this.grpbChonhang_Enter);
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 460);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 20);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Tiền khách trả";
+            // 
+            // txtbxTienkhachtra
+            // 
+            this.txtbxTienkhachtra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxTienkhachtra.Location = new System.Drawing.Point(117, 457);
+            this.txtbxTienkhachtra.Name = "txtbxTienkhachtra";
+            this.txtbxTienkhachtra.Size = new System.Drawing.Size(213, 27);
+            this.txtbxTienkhachtra.TabIndex = 9;
+            this.txtbxTienkhachtra.Text = "0";
+            this.txtbxTienkhachtra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxSoluong_KeyPress);
+            // 
             // lstboxMatHang
             // 
-            this.lstboxMatHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstboxMatHang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstboxMatHang.FormattingEnabled = true;
             this.lstboxMatHang.ItemHeight = 20;
             this.lstboxMatHang.Location = new System.Drawing.Point(110, 78);
             this.lstboxMatHang.Name = "lstboxMatHang";
-            this.lstboxMatHang.Size = new System.Drawing.Size(280, 84);
+            this.lstboxMatHang.Size = new System.Drawing.Size(220, 84);
             this.lstboxMatHang.TabIndex = 8;
             this.lstboxMatHang.Visible = false;
             this.lstboxMatHang.Click += new System.EventHandler(this.lstboxMatHang_Click);
@@ -147,6 +169,8 @@
             this.txtbxKhuyenMai.Name = "txtbxKhuyenMai";
             this.txtbxKhuyenMai.Size = new System.Drawing.Size(100, 27);
             this.txtbxKhuyenMai.TabIndex = 6;
+            this.txtbxKhuyenMai.Text = "0";
+            this.txtbxKhuyenMai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxSoluong_KeyPress);
             // 
             // txtbxSoluong
             // 
@@ -154,6 +178,8 @@
             this.txtbxSoluong.Name = "txtbxSoluong";
             this.txtbxSoluong.Size = new System.Drawing.Size(100, 27);
             this.txtbxSoluong.TabIndex = 6;
+            this.txtbxSoluong.Text = "1";
+            this.txtbxSoluong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxSoluong_KeyPress);
             // 
             // label2
             // 
@@ -215,7 +241,7 @@
             this.buttonToHd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonToHd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonToHd.ForeColor = System.Drawing.Color.Teal;
-            this.buttonToHd.Location = new System.Drawing.Point(310, 174);
+            this.buttonToHd.Location = new System.Drawing.Point(250, 174);
             this.buttonToHd.Margin = new System.Windows.Forms.Padding(0);
             this.buttonToHd.Name = "buttonToHd";
             this.buttonToHd.Size = new System.Drawing.Size(80, 27);
@@ -245,7 +271,7 @@
             this.cbxHsx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxHsx.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxHsx.FormattingEnabled = true;
-            this.cbxHsx.Location = new System.Drawing.Point(288, 51);
+            this.cbxHsx.Location = new System.Drawing.Point(228, 51);
             this.cbxHsx.Margin = new System.Windows.Forms.Padding(0);
             this.cbxHsx.Name = "cbxHsx";
             this.cbxHsx.Size = new System.Drawing.Size(102, 28);
@@ -253,23 +279,25 @@
             // 
             // txtbxTenHang
             // 
-            this.txtbxTenHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbxTenHang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbxTenHang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbxTenHang.Location = new System.Drawing.Point(110, 50);
             this.txtbxTenHang.Margin = new System.Windows.Forms.Padding(0);
             this.txtbxTenHang.Name = "txtbxTenHang";
-            this.txtbxTenHang.Size = new System.Drawing.Size(179, 29);
+            this.txtbxTenHang.Size = new System.Drawing.Size(119, 29);
             this.txtbxTenHang.TabIndex = 2;
             this.txtbxTenHang.TextChanged += new System.EventHandler(this.txtbxTenHang_TextChanged);
             // 
             // cbxLoaiHang
             // 
-            this.cbxLoaiHang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxLoaiHang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxLoaiHang.FormattingEnabled = true;
             this.cbxLoaiHang.Location = new System.Drawing.Point(110, 23);
             this.cbxLoaiHang.Margin = new System.Windows.Forms.Padding(0);
             this.cbxLoaiHang.Name = "cbxLoaiHang";
-            this.cbxLoaiHang.Size = new System.Drawing.Size(280, 28);
+            this.cbxLoaiHang.Size = new System.Drawing.Size(220, 28);
             this.cbxLoaiHang.TabIndex = 1;
             // 
             // dgvMhdb
@@ -281,7 +309,7 @@
             this.dgvMhdb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMhdb.Location = new System.Drawing.Point(6, 200);
             this.dgvMhdb.Name = "dgvMhdb";
-            this.dgvMhdb.Size = new System.Drawing.Size(384, 253);
+            this.dgvMhdb.Size = new System.Drawing.Size(324, 253);
             this.dgvMhdb.TabIndex = 0;
             // 
             // groupBox2
@@ -302,10 +330,30 @@
             this.groupBox2.Controls.Add(this.btnBanHang);
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(388, 492);
+            this.groupBox2.Size = new System.Drawing.Size(448, 492);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hóa đơn";
+            // 
+            // txtbxTralaikhach
+            // 
+            this.txtbxTralaikhach.AutoSize = true;
+            this.txtbxTralaikhach.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxTralaikhach.Location = new System.Drawing.Point(156, 174);
+            this.txtbxTralaikhach.Name = "txtbxTralaikhach";
+            this.txtbxTralaikhach.Size = new System.Drawing.Size(96, 20);
+            this.txtbxTralaikhach.TabIndex = 8;
+            this.txtbxTralaikhach.Text = "Trả lại khách";
+            // 
+            // lblTienkhachtra
+            // 
+            this.lblTienkhachtra.AutoSize = true;
+            this.lblTienkhachtra.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTienkhachtra.Location = new System.Drawing.Point(144, 149);
+            this.lblTienkhachtra.Name = "lblTienkhachtra";
+            this.lblTienkhachtra.Size = new System.Drawing.Size(108, 20);
+            this.lblTienkhachtra.TabIndex = 8;
+            this.lblTienkhachtra.Text = "Tiền khách trả";
             // 
             // lblTong
             // 
@@ -363,7 +411,7 @@
             this.dgvHoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoadon.Location = new System.Drawing.Point(6, 200);
             this.dgvHoadon.Name = "dgvHoadon";
-            this.dgvHoadon.Size = new System.Drawing.Size(376, 286);
+            this.dgvHoadon.Size = new System.Drawing.Size(436, 286);
             this.dgvHoadon.TabIndex = 0;
             // 
             // txtbxMKH
@@ -392,6 +440,7 @@
             // btnBanHang
             // 
             this.btnBanHang.BackColor = System.Drawing.Color.Teal;
+            this.btnBanHang.Enabled = false;
             this.btnBanHang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btnBanHang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -406,45 +455,6 @@
             this.btnBanHang.UseVisualStyleBackColor = false;
             this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
             // 
-            // txtbxTienkhachtra
-            // 
-            this.txtbxTienkhachtra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbxTienkhachtra.Location = new System.Drawing.Point(117, 457);
-            this.txtbxTienkhachtra.Name = "txtbxTienkhachtra";
-            this.txtbxTienkhachtra.Size = new System.Drawing.Size(273, 27);
-            this.txtbxTienkhachtra.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 460);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 20);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Tiền khách trả";
-            // 
-            // lblTienkhachtra
-            // 
-            this.lblTienkhachtra.AutoSize = true;
-            this.lblTienkhachtra.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTienkhachtra.Location = new System.Drawing.Point(144, 149);
-            this.lblTienkhachtra.Name = "lblTienkhachtra";
-            this.lblTienkhachtra.Size = new System.Drawing.Size(108, 20);
-            this.lblTienkhachtra.TabIndex = 8;
-            this.lblTienkhachtra.Text = "Tiền khách trả";
-            // 
-            // txtbxTralaikhach
-            // 
-            this.txtbxTralaikhach.AutoSize = true;
-            this.txtbxTralaikhach.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxTralaikhach.Location = new System.Drawing.Point(156, 174);
-            this.txtbxTralaikhach.Name = "txtbxTralaikhach";
-            this.txtbxTralaikhach.Size = new System.Drawing.Size(96, 20);
-            this.txtbxTralaikhach.TabIndex = 8;
-            this.txtbxTralaikhach.Text = "Trả lại khách";
-            // 
             // BanHangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -455,7 +465,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "BanHangForm";
-            this.Text = "BanHangForm";
+            this.Text = "Bán hàng";
             this.Load += new System.EventHandler(this.BanHangForm_Load);
             this.Click += new System.EventHandler(this.BanHangForm_Click);
             this.splitContainer1.Panel1.ResumeLayout(false);

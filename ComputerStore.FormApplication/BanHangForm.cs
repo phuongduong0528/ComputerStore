@@ -169,6 +169,11 @@ namespace ComputerStore.FormApplication
 
         private async void buttonToHd_Click(object sender, EventArgs e)
         {
+            if(mathangDisplay == null)
+            {
+                MessageBox.Show("Chưa chọn mặt hàng", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             long tienkhachtra = 0;
             try
             {
@@ -193,7 +198,7 @@ namespace ComputerStore.FormApplication
 
             if ((tienkhachtra - tongTien) < 0)
             {
-                MessageBox.Show("So tien khong du", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Số tiền không đủ\nCòn thiếu: {tongTien - tienkhachtra}", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -204,6 +209,8 @@ namespace ComputerStore.FormApplication
             
             lblTienkhachtra.Text = $"Tiền khách trả: {tienkhachtra.ToString("N0")} VND";
             txtbxTralaikhach.Text = $"Trả lại khách: {(tienkhachtra - tongTien).ToString("N0")} VND";
+
+            btnBanHang.Enabled = true;
         }
 
         private async void btnBanHang_Click(object sender, EventArgs e)
@@ -229,6 +236,13 @@ namespace ComputerStore.FormApplication
                 else
                 {
                     khachHangId = txtbxMKH.Text.Trim();
+                    //KhachHangController khachHangController = new KhachHangController(Ultilities.ip, Ultilities.port);
+                    //var kh = await khachHangController.GetKhachHang(khachHangId);
+                    //if (kh.TenKH == "")
+                    //{
+                    //    MessageBox.Show("Không có khách hàng", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    return;
+                    //}
                 }
                 var a = await sellingController.GetAllHoaDon();
                 int count = a.Count();
@@ -272,6 +286,14 @@ namespace ComputerStore.FormApplication
         private void QuanLyKhachForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             quanLyKhachForm = null;
+        }
+
+        private void txtbxSoluong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

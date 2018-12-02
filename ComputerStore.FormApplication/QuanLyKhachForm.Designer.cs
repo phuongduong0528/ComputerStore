@@ -257,7 +257,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuanLyKhachForm";
-            this.Text = "QuanLyKhachForm";
+            this.Text = "Quản lý khách";
             this.Load += new System.EventHandler(this.QuanLyKhachForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();

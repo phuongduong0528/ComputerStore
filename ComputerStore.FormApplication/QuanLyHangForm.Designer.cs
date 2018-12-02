@@ -40,8 +40,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.cbxHsx = new System.Windows.Forms.ComboBox();
             this.dgvMatHang = new System.Windows.Forms.DataGridView();
-            this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.cbxTinhtrang = new System.Windows.Forms.ComboBox();
+            this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -156,7 +156,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(678, 94);
+            this.tabPage2.Size = new System.Drawing.Size(746, 94);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Công cụ";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -219,18 +219,6 @@
             this.dgvMatHang.TabIndex = 0;
             this.dgvMatHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatHang_CellContentClick);
             // 
-            // dgvSanPham
-            // 
-            this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
-            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSanPham.Location = new System.Drawing.Point(3, 35);
-            this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.Size = new System.Drawing.Size(388, 289);
-            this.dgvSanPham.TabIndex = 0;
-            // 
             // cbxTinhtrang
             // 
             this.cbxTinhtrang.FormattingEnabled = true;
@@ -244,6 +232,18 @@
             this.cbxTinhtrang.TabIndex = 1;
             this.cbxTinhtrang.SelectedIndexChanged += new System.EventHandler(this.cbxTinhtrang_SelectedIndexChanged);
             // 
+            // dgvSanPham
+            // 
+            this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
+            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSanPham.Location = new System.Drawing.Point(3, 35);
+            this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.Size = new System.Drawing.Size(388, 289);
+            this.dgvSanPham.TabIndex = 0;
+            // 
             // QuanLyHangForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -254,7 +254,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuanLyHangForm";
-            this.Text = "QuanLyHangForm";
+            this.Text = "Quản lý hàng";
             this.Load += new System.EventHandler(this.QuanLyHangForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

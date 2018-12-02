@@ -177,7 +177,7 @@
             this.btnTestConn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnTestConn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnTestConn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTestConn.Font = new System.Drawing.Font("Segoe UI Symbol", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTestConn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTestConn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnTestConn.Location = new System.Drawing.Point(460, 141);
             this.btnTestConn.Margin = new System.Windows.Forms.Padding(0);
@@ -224,7 +224,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LogInForm";
-            this.Text = "LogInForm";
+            this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.LogInForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -110,6 +110,9 @@ namespace ComputerStore.FormApplication
                 lblTong.Text = $"TỔNG: {a.ThanhTien.ToString("N0")} VND";
                 lblNgaymua.Text = $"Ngày mua: {a.NgayLap}";
                 dgvSanphamban.DataSource = b;
+                dgvSanphamban.Columns[5].Visible = false;
+                dgvSanphamban.Columns[6].Visible = false;
+                dgvSanphamban.Columns[7].Visible = false;
             }
             catch (Exception ex)
             {
@@ -129,7 +132,7 @@ namespace ComputerStore.FormApplication
 
             ws.Column(1).Width = 18.0;
             ws.Column(2).Width = 24.0;
-            ws.Column(3).Width = 10.7;
+            ws.Column(3).Width = 11.7;
             ws.Column(4).Width =  5.0;
             ws.Column(5).Width = 15.0;
 
@@ -139,25 +142,35 @@ namespace ComputerStore.FormApplication
             ws.Cells["B3"].Value = "HÓA ĐƠN MUA HÀNG";
             ws.Cells["B3:D3"].Merge = true;
             ws.Cells["B3:D3"].Style.Font.Bold = true;
+            ws.Cells["B3:D3"].Style.Font.Size = 14.0f;
             ws.Cells["B3:D3"].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
 
-            for(int i = 0; i < dgvSanphamban.ColumnCount-2; i++)
+            ws.Cells["A5"].Value = "Mã SP";
+            ws.Cells["B5"].Value = "Tên SP";
+            ws.Cells["C5"].Value = "Serial";
+            ws.Cells["D5"].Value = "KM";
+            ws.Cells["E5"].Value = "Giá";
+            ws.Cells["A5:E5"].Style.Font.Bold = true;
+
+            for (int i = 0; i < dgvSanphamban.ColumnCount-3; i++)
             {
                 for(int j = 0; j < dgvSanphamban.RowCount; j++)
                 {
-                    ws.Cells[j + 5, i + 1].Value =
+                    ws.Cells[j + 6, i + 1].Value =
                         dgvSanphamban.Rows[j].Cells[i].Value.ToString();
                 }
             }
 
-            ws.Cells[dgvSanphamban.RowCount + 7, 1].Value = "Tên khách hàng";
-            ws.Cells[dgvSanphamban.RowCount + 7, 2].Value = a.TenKH;
+            ws.Cells[dgvSanphamban.RowCount + 8, 1].Value = "Tên khách hàng";
+            ws.Cells[dgvSanphamban.RowCount + 8, 2].Value = a.TenKH;
+            ws.Cells[dgvSanphamban.RowCount + 8, 2].Style.Font.Bold = true;
+                                             
+            ws.Cells[dgvSanphamban.RowCount + 8, 4].Value = "Tổng";
+            ws.Cells[dgvSanphamban.RowCount + 8, 5].Value = $"{a.ThanhTien.ToString("N0")} VND";
+            ws.Cells[dgvSanphamban.RowCount + 8, 5].Style.Font.Bold = true;
 
-            ws.Cells[dgvSanphamban.RowCount + 7, 4].Value = "Tổng";
-            ws.Cells[dgvSanphamban.RowCount + 7, 5].Value = $"{a.ThanhTien.ToString("N0")} VND";
-
-            ws.Cells[dgvSanphamban.RowCount + 8, 1].Value = a.NgayLap;
-            ws.Cells[dgvSanphamban.RowCount + 9, 1, dgvSanphamban.RowCount + 9, 2].Merge = true;
+            ws.Cells[dgvSanphamban.RowCount + 9, 1].Value = a.NgayLap;
+            ws.Cells[dgvSanphamban.RowCount + 10, 1, dgvSanphamban.RowCount + 10, 2].Merge = true;
 
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             package.SaveAs(new System.IO.FileInfo(path + $"\\HoaDon{DateTime.Now.ToString("yyyyMMddHHmmss")}{mahd}.xlsx"));
