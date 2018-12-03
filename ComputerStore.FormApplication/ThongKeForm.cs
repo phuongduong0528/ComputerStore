@@ -27,12 +27,18 @@ namespace ComputerStore.FormApplication
         {
             cbxThang.SelectedIndex = DateTime.Now.Month - 2;
             comboBox1.SelectedIndex = 0;
+            dataGridView1.Columns.Add("tenMh", "Tên MH");
+            dataGridView1.Columns.Add("soluong", "Số lượng bán");
+            dataGridView2.Columns.Add("tenMh", "Tên MH");
+            dataGridView2.Columns.Add("soluong", "Số lượng bán");
         }
         
         private async void cbxThang_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                dataGridView1.Rows.Clear();
+
                 int month = Convert.ToInt32(cbxThang.SelectedItem.ToString());
                 List<Services.Dto.HoaDonDto> a = await sellingController.GetAllHoaDon();
                 List<Services.Dto.HoaDonDto> b = a.Where(hd => DateTime.ParseExact(hd.NgayLap, @"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture).Month == month).ToList();
@@ -71,6 +77,8 @@ namespace ComputerStore.FormApplication
                         YValues = new[] { percent_item },
                         ToolTip = $"{matHang.TenMatHang} - {countSp} - {percent_item:F1} %"
                     });
+
+                    dataGridView1.Rows.Add(matHang.TenMatHang, countSp);
                 }
             }
             catch (Exception ex)
@@ -81,6 +89,8 @@ namespace ComputerStore.FormApplication
 
         private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dataGridView2.Rows.Clear();
+
             //CHART DOANH THU HANH THANG
             Series series;
             double total = 0;
@@ -147,6 +157,8 @@ namespace ComputerStore.FormApplication
                     YValues = new[] { percent_item2 },
                     ToolTip = $"{matHang.TenMatHang} - {countSp} - {percent_item2:F1} %"
                 });
+
+                dataGridView2.Rows.Add(matHang.TenMatHang, countSp);
             }
         }
 

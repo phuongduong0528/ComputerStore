@@ -12,19 +12,19 @@ namespace ComputerStore.Services.Dto
     public class KhachHangDto
     {
         [DataMember(Name = "makh", Order = 0)]
-        [DisplayName("Ma KH")]
+        [DisplayName("Mã KH")]
         public string MaKH { get; set; }
 
         [DataMember(Name = "tenkh", Order = 1)]
-        [DisplayName("Ten KH")]
+        [DisplayName("Tên khách hàng")]
         public string TenKH { get; set; }
 
         [DataMember(Name = "ngaysinh", Order = 2)]
-        [DisplayName("Ngay Sinh")]
+        [DisplayName("Ngày sinh")]
         public string NgaySinh { get; set; }
 
         [DataMember(Name = "diachi", Order = 3)]
-        [DisplayName("Dia Chi")]
+        [DisplayName("Địa chỉ")]
         public string DiaChi { get; set; }
 
         [DataMember(Name = "email", Order = 4)]
@@ -32,7 +32,7 @@ namespace ComputerStore.Services.Dto
         public string Email { get; set; }
 
         [DataMember(Name = "sdt", Order = 5)]
-        [DisplayName("SDT")]
+        [DisplayName("SĐT")]
         public string Sdt { get; set; }
     }
 }

@@ -22,6 +22,13 @@ namespace ComputerStore.FormApplication
             sellingController = new SellingController(Ultilities.ip, Ultilities.port);
         }
 
+        public XemHoaDonForm(string mahd)
+        {
+            InitializeComponent();
+            sellingController = new SellingController(Ultilities.ip, Ultilities.port);
+            LoadHoaDon(mahd);
+        }
+
         private void XemHoaDonForm_Load(object sender, EventArgs e)
         {
         }
@@ -102,22 +109,27 @@ namespace ComputerStore.FormApplication
             {
                 int row = dgvHoadon.CurrentCell.RowIndex;
                 string mahd = dgvHoadon.Rows[row].Cells[0].Value.ToString();
-                Services.Dto.HoaDonDto a = await sellingController.GetHoaDon(mahd);
-                List<Services.Dto.MatHangDuocBanDto> b = await sellingController.GetMatHangDuocBan(mahd);
-                lblMahoadon.Text = $"Mã hóa đơn: {a.MaHD}";
-                lblNhanvien.Text = $"Nhân viên: {a.TenNV}";
-                lblKhachhang.Text = $"Khách hàng: {a.TenKH}";
-                lblTong.Text = $"TỔNG: {a.ThanhTien.ToString("N0")} VND";
-                lblNgaymua.Text = $"Ngày mua: {a.NgayLap}";
-                dgvSanphamban.DataSource = b;
-                dgvSanphamban.Columns[5].Visible = false;
-                dgvSanphamban.Columns[6].Visible = false;
-                dgvSanphamban.Columns[7].Visible = false;
+                await LoadHoaDon(mahd);
             }
             catch (Exception ex)
             {
 
             }
+        }
+
+        private async Task LoadHoaDon(string mahd)
+        {
+            Services.Dto.HoaDonDto a = await sellingController.GetHoaDon(mahd);
+            List<Services.Dto.MatHangDuocBanDto> matHangDuocBan = await sellingController.GetMatHangDuocBan(mahd);
+            lblMahoadon.Text = $"Mã hóa đơn: {a.MaHD}";
+            lblNhanvien.Text = $"Nhân viên: {a.TenNV}";
+            lblKhachhang.Text = $"Khách hàng: {a.TenKH}";
+            lblTong.Text = $"TỔNG: {a.ThanhTien.ToString("N0")} VND";
+            lblNgaymua.Text = $"Ngày mua: {a.NgayLap}";
+            dgvSanphamban.DataSource = matHangDuocBan;
+            dgvSanphamban.Columns[5].Visible = false;
+            dgvSanphamban.Columns[6].Visible = false;
+            dgvSanphamban.Columns[7].Visible = false;
         }
 
         private async void btnExportExcel_Click(object sender, EventArgs e)

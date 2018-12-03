@@ -12,11 +12,11 @@ namespace ComputerStore.Services.Dto
     public class LoaiHangDto
     {
         [DataMember(Name = "malh", Order = 0)]
-        [DisplayName("Ma LH")]
+        [DisplayName("Mã LH")]
         public string MaLH { get; set; }
 
         [DataMember(Name = "tenlh", Order = 1)]
-        [DisplayName("Ten LH")]
+        [DisplayName("Tên LH")]
         public string TenLH { get; set; }
     }
 }

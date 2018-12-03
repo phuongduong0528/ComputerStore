@@ -25,6 +25,8 @@ namespace ComputerStore.FormApplication
         List<MatHangDto> tempMatHang;
         List<MatHangDto> mathangDisplay;
         QuanLyKhachForm quanLyKhachForm;
+        XemHoaDonForm xemHoaDonForm;
+
         public BanHangForm()
         {
             InitializeComponent();
@@ -265,6 +267,12 @@ namespace ComputerStore.FormApplication
                 //{
                 //    MessageBox.Show("Giao dịch thất bại", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //}
+
+
+                xemHoaDonForm = new XemHoaDonForm(a.First().MaHD);
+                xemHoaDonForm.MdiParent = this.ParentForm;
+                xemHoaDonForm.Show();
+                this.Close();
             }
             catch(Exception ex)
             {

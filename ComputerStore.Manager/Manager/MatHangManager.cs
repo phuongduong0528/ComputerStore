@@ -133,9 +133,9 @@ namespace ComputerStore.Manager.Manager
             }
         }
 
-        public List<MatHang> GetAllMatHang() => computerStoreEntities.MatHangs.OrderBy(mh => mh.TenMatHang).ToList();
+        public List<MatHang> GetAllMatHang() => computerStoreEntities.MatHangs.ToList();
 
-        public List<SanPham> GetAllSanPham() => computerStoreEntities.SanPhams.OrderBy(sp => sp.Serial).ToList();
+        public List<SanPham> GetAllSanPham() => computerStoreEntities.SanPhams.ToList();
 
         public MatHang GetMatHang(string id) => computerStoreEntities.MatHangs.SingleOrDefault(mh => mh.MaMH.Equals(id));
 

@@ -21,8 +21,8 @@ namespace ComputerStore.Manager.Manager
                 string id;
                 if(nhanVien != null)
                 {
-                    if (computerStoreEntities.NhanViens.Any(nv => nv.Email.Equals(nhanVien.Email)) && (nhanVien.Email != ""))
-                        return false;
+                    //if (computerStoreEntities.NhanViens.Any(nv => nv.Email.Equals(nhanVien.Email)) || (nhanVien.Email != ""))
+                    //    return false;
                     do
                     {
                         id = Convert.ToInt64(random.Next() + random.Next()).ToString("D10");

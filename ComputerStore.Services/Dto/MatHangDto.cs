@@ -12,31 +12,31 @@ namespace ComputerStore.Services.Dto
     public class MatHangDto
     {
         [DataMember(Name = "mamh", Order = 0)]
-        [DisplayName("Ma MH")]
+        [DisplayName("Mã MH")]
         public string MaMH { get; set; }
 
-        [DataMember(Name = "loaihang", Order = 1)]
-        [DisplayName("Loai hang")]
-        public string LoaiHang { get; set; }
-
-        [DataMember(Name = "hangsanxuat", Order = 2)]
-        [DisplayName("Hang sx")]
+        [DataMember(Name = "hangsanxuat", Order = 1)]
+        [DisplayName("Hãng sx")]
         public string HangSanXuat { get; set; }
 
-        [DataMember(Name = "nhaphanphoi", Order = 3)]
-        [DisplayName("Nha phan phoi")]
-        public string NhaPhanPhoi { get; set; }
-
-        [DataMember(Name = "tenmathang", Order = 4)]
-        [DisplayName("Ten")]
+        [DataMember(Name = "tenmathang", Order = 2)]
+        [DisplayName("Tên")]
         public string TenMatHang { get; set; }
 
+        [DataMember(Name = "loaihang", Order = 3)]
+        [DisplayName("Loại hàng")]
+        public string LoaiHang { get; set; }
+
+        [DataMember(Name = "nhaphanphoi", Order = 4)]
+        [DisplayName("Nhà phân phối")]
+        public string NhaPhanPhoi { get; set; }
+
         [DataMember(Name = "soluong", Order = 5)]
-        [DisplayName("So luong")]
+        [DisplayName("Số lượng")]
         public int SoLuong { get; set; }
 
         [DataMember(Name = "gianiemyet", Order = 6)]
-        [DisplayName("Gia")]
+        [DisplayName("Giá")]
         public long GiaNiemYet { get; set; }
 
     }

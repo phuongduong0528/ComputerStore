@@ -16,11 +16,11 @@ namespace ComputerStore.Services.Dto
         public string MaNV { get; set; }
 
         [DataMember(Name = "tennv", Order = 1)]
-        [DisplayName("Ten NV")]
+        [DisplayName("Tên NV")]
         public string TenNV { get; set; }
 
         [DataMember(Name = "ngaysinh", Order = 2)]
-        [DisplayName("Ngay sinh")]
+        [DisplayName("Ngày sinh")]
         public string NgaySinh { get; set; }
 
         [DataMember(Name = "diachi", Order = 3)]

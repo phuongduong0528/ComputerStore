@@ -56,6 +56,7 @@ namespace ComputerStore.FormApplication
 
         private async Task RefreshDgvTThoadonKH()
         {
+            dgvTTkhach.DataSource = null;
             int row = dgvKhach.CurrentCell.RowIndex;
             string makh = dgvKhach.Rows[row].Cells[0].Value.ToString();
             var hd = await sellingController.GetAllHoaDon();
@@ -110,9 +111,20 @@ namespace ComputerStore.FormApplication
             await RefreshDgvTThoadonKH();
         }
 
-        private void btnBaohanh_Click(object sender, EventArgs e)
+        private async void btnBaohanh_Click(object sender, EventArgs e)
         {
+            try
+            {
+                dgvTTkhach.DataSource = null;
+                int row = dgvKhach.CurrentCell.RowIndex;
+                string makh = dgvKhach.Rows[row].Cells[0].Value.ToString();
+                List<BaoHanhDto> ttBaohanh = await sellingController.GetBaoHanhByKhachHang(makh);
+                dgvTTkhach.DataSource = ttBaohanh;
+            }
+            catch (Exception)
+            {
 
+            }
         }
     }
 }

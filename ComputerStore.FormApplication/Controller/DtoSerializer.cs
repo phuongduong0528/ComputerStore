@@ -56,10 +56,10 @@ namespace ComputerStore.FormApplication.Controller
             object o = new
             {
                 mamh = matHangDto.MaMH,
-                loaihang = matHangDto.LoaiHang,
                 hangsanxuat = matHangDto.HangSanXuat,
-                nhaphanphoi = matHangDto.NhaPhanPhoi,
                 tenmathang = matHangDto.TenMatHang,
+                loaihang = matHangDto.LoaiHang,
+                nhaphanphoi = matHangDto.NhaPhanPhoi,
                 soluong = matHangDto.SoLuong,
                 gianiemyet = matHangDto.GiaNiemYet,
             };

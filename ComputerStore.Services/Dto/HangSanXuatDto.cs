@@ -12,11 +12,11 @@ namespace ComputerStore.Services.Dto
     public class HangSanXuatDto
     {
         [DataMember(Name = "mahsx", Order = 0)]
-        [DisplayName("Ma HSX")]
+        [DisplayName("Mã HSX")]
         public string MaHSX { get; set; }
 
         [DataMember(Name = "tenhsx", Order = 1)]
-        [DisplayName("Ten HSX")]
+        [DisplayName("Tên HSX")]
         public string TenHSX { get; set; }
     }
 }

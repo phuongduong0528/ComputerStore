@@ -26,7 +26,7 @@ namespace ComputerStore.FormApplication
         {
             matHangController = new MatHangController(Ultilities.ip, Ultilities.port);
             matHangDtos = await matHangController.GetAllMatHang();
-            dgvMatHang.DataSource = matHangDtos;
+            dgvMatHang.DataSource = matHangDtos.OrderBy(mh=>mh.HangSanXuat).ToList();
             cbxHsx.Items.Add("All");
             LoaiHangController lhc = new LoaiHangController(Ultilities.ip, Ultilities.port);
             List<HangSanXuatDto> listHsx = await lhc.GetAllHangSanXuat();
@@ -46,7 +46,7 @@ namespace ComputerStore.FormApplication
 
         private async void RefreshDgvMatHang()
         {
-            dgvMatHang.DataSource = matHangDtos;
+            dgvMatHang.DataSource = matHangDtos.OrderBy(mh => mh.HangSanXuat).ToList();
         }
 
         private async void dgvMatHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,7 +81,7 @@ namespace ComputerStore.FormApplication
             else
             {
                 int row = dgvMatHang.CurrentCell.RowIndex;
-                string item = dgvMatHang.Rows[row].Cells[4].Value.ToString();
+                string item = dgvMatHang.Rows[row].Cells[2].Value.ToString();
                 UpdateSanPhamForm uspf = new UpdateSanPhamForm(null, item);
                 uspf.FormClosed += Uspf_FormClosed;
                 uspf.ShowDialog();
