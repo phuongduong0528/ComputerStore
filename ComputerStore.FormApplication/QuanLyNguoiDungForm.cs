@@ -140,7 +140,7 @@ namespace ComputerStore.FormApplication
                 string id = dgvNguoidung.Rows[row].Cells[0].Value.ToString();
                 if(id == Ultilities.idUser)
                 {
-                    MessageBox.Show("Không thể xóa tài khoản hiện tại", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Không thể khóa tài khoản hiện tại", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 nhanVienController.LockAccount(id);
