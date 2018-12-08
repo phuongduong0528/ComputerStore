@@ -129,6 +129,7 @@
             this.btnNhaplai.TabIndex = 1;
             this.btnNhaplai.Text = "Nhập lại";
             this.btnNhaplai.UseVisualStyleBackColor = true;
+            this.btnNhaplai.Click += new System.EventHandler(this.btnNhaplai_Click);
             // 
             // label4
             // 

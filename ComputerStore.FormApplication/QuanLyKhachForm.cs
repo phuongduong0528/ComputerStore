@@ -126,5 +126,14 @@ namespace ComputerStore.FormApplication
 
             }
         }
+
+        private void btnNhaplai_Click(object sender, EventArgs e)
+        {
+            txtbxTen.Text = "";
+            txtbxNS.Text = "";
+            txtbxEmail.Text = "";
+            txtbxDT.Text = "";
+            txtbxDiachi.Text = "";
+        }
     }
 }

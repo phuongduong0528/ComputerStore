@@ -1,4 +1,5 @@
 ﻿using ComputerStore.FormApplication.Controller;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,23 +10,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OfficeOpenXml;
 
 namespace ComputerStore.FormApplication
 {
     public partial class XemHoaDonForm : Form
     {
-        SellingController sellingController;
+        private SellingController sellingController;
+        private string maHd;
+
         public XemHoaDonForm()
         {
             InitializeComponent();
             sellingController = new SellingController(Ultilities.ip, Ultilities.port);
+            this.maHd = "";
         }
 
         public XemHoaDonForm(string mahd)
         {
             InitializeComponent();
             sellingController = new SellingController(Ultilities.ip, Ultilities.port);
+            this.maHd = mahd;
             LoadHoaDon(mahd);
         }
 
@@ -40,7 +44,7 @@ namespace ComputerStore.FormApplication
             {
                 if (!checkBox1.Checked)
                 {
-                    listHoaDon = 
+                    listHoaDon =
                         await sellingController.GetHoaDonFilter(txtbxMahd.Text, @"01/01/1900 00:00:00", @"31/12/2099 00:00:00");
                     dgvHoadon.DataSource = listHoaDon;
                 }
@@ -53,7 +57,7 @@ namespace ComputerStore.FormApplication
                     dgvHoadon.DataSource = listHoaDon;
                 }
             }
-            catch(Exception ex)
+            catch (Exception)
             {
 
             }
@@ -83,7 +87,7 @@ namespace ComputerStore.FormApplication
                     await sellingController.GetHoaDonFilter(txtbxMahd.Text, from, to);
                 dgvHoadon.DataSource = listHoaDon;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -98,7 +102,7 @@ namespace ComputerStore.FormApplication
                     await sellingController.GetHoaDonFilter(txtbxMahd.Text, from, to);
                 dgvHoadon.DataSource = listHoaDon;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -111,7 +115,7 @@ namespace ComputerStore.FormApplication
                 string mahd = dgvHoadon.Rows[row].Cells[0].Value.ToString();
                 await LoadHoaDon(mahd);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -134,8 +138,17 @@ namespace ComputerStore.FormApplication
 
         private async void btnExportExcel_Click(object sender, EventArgs e)
         {
-            int row = dgvHoadon.CurrentCell.RowIndex;
-            string mahd = dgvHoadon.Rows[row].Cells[0].Value.ToString();
+            string mahd = "";
+            if (this.maHd.Equals(""))
+            {
+                int row = dgvHoadon.CurrentCell.RowIndex;
+                mahd = dgvHoadon.Rows[row].Cells[0].Value.ToString();
+            }
+            else
+            {
+                mahd = this.maHd;
+            }
+
             Services.Dto.HoaDonDto a = await sellingController.GetHoaDon(mahd);
             List<Services.Dto.MatHangDuocBanDto> b = await sellingController.GetMatHangDuocBan(mahd);
 
@@ -145,7 +158,7 @@ namespace ComputerStore.FormApplication
             ws.Column(1).Width = 18.0;
             ws.Column(2).Width = 24.0;
             ws.Column(3).Width = 11.7;
-            ws.Column(4).Width =  5.0;
+            ws.Column(4).Width = 5.0;
             ws.Column(5).Width = 15.0;
 
             ws.Cells["A1"].Value = "Mã hóa đơn";
@@ -164,9 +177,9 @@ namespace ComputerStore.FormApplication
             ws.Cells["E5"].Value = "Giá";
             ws.Cells["A5:E5"].Style.Font.Bold = true;
 
-            for (int i = 0; i < dgvSanphamban.ColumnCount-3; i++)
+            for (int i = 0; i < dgvSanphamban.ColumnCount - 3; i++)
             {
-                for(int j = 0; j < dgvSanphamban.RowCount; j++)
+                for (int j = 0; j < dgvSanphamban.RowCount; j++)
                 {
                     ws.Cells[j + 6, i + 1].Value =
                         dgvSanphamban.Rows[j].Cells[i].Value.ToString();
@@ -176,7 +189,7 @@ namespace ComputerStore.FormApplication
             ws.Cells[dgvSanphamban.RowCount + 8, 1].Value = "Tên khách hàng";
             ws.Cells[dgvSanphamban.RowCount + 8, 2].Value = a.TenKH;
             ws.Cells[dgvSanphamban.RowCount + 8, 2].Style.Font.Bold = true;
-                                             
+
             ws.Cells[dgvSanphamban.RowCount + 8, 4].Value = "Tổng";
             ws.Cells[dgvSanphamban.RowCount + 8, 5].Value = $"{a.ThanhTien.ToString("N0")} VND";
             ws.Cells[dgvSanphamban.RowCount + 8, 5].Style.Font.Bold = true;

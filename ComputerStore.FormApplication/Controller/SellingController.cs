@@ -91,7 +91,7 @@ namespace ComputerStore.FormApplication.Controller
         public async Task<List<BaoHanhDto>> GetBaoHanhByKhachHang(string pmakh)
         {
             RequestController<List<BaoHanhDto>> controller = new RequestController<List<BaoHanhDto>>();
-            controller.Url = baseUrl + "/BaoHanh" + pmakh;
+            controller.Url = baseUrl + "/BaoHanh/" + pmakh;
             List<BaoHanhDto> respond =  await controller.GetData();
             return respond;
         }
