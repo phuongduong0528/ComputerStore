@@ -19,7 +19,14 @@ namespace ComputerStore.Services.Adaptor
             sanPhamDto.TenMH = sanPham.MatHang.TenMatHang;
             sanPhamDto.DonViTinh = sanPham.DonViTinh;
             sanPhamDto.NgayNhap = sanPham.NgayNhap.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-            sanPhamDto.NgayXuat = sanPham.NgayXuat.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            if (sanPham.NgayXuat.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture).Equals("01/01/1900"))
+            {
+                sanPhamDto.NgayXuat = "";
+            }
+            else
+            {
+                sanPhamDto.NgayXuat = sanPham.NgayXuat.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
             sanPhamDto.TinhTrang = sanPham.TinhTrang;
             return sanPhamDto;
         }

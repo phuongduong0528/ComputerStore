@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Net.NetworkInformation;
 using ComputerStore.FormApplication.Controller;
 using ComputerStore.Manager.Manager;
 using ComputerStore.Manager.Models;
@@ -18,8 +20,12 @@ namespace Test
         [TestMethod]
         public void TestMethod1()
         {
-            string from = "20/1/2018 05:00:00";
-            DateTime dtFrom = DateTime.ParseExact(from, @"dd/MM/yyyy HH\:mm\:ss", CultureInfo.InvariantCulture);
+            NetworkInterface netInterface = NetworkInterface.GetAllNetworkInterfaces()
+                .Where(n => n.OperationalStatus == OperationalStatus.Up
+                        && n.NetworkInterfaceType != NetworkInterfaceType.Loopback
+                        && !n.Name.Contains("VMware")).FirstOrDefault();
+
+            var gwAddress = netInterface.GetIPProperties().GatewayAddresses.FirstOrDefault().Address.ToString();
         }
     }
 }

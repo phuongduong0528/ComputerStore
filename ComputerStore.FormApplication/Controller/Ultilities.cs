@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,16 @@ namespace ComputerStore.FormApplication.Controller
                 sb.Append(b.ToString("X2").ToLower());
             }
             return sb.ToString();
+        }
+
+        public static string GetDefaultGateway()
+        {
+            NetworkInterface netInterface = NetworkInterface.GetAllNetworkInterfaces()
+                .Where(n => n.OperationalStatus == OperationalStatus.Up
+                        && n.NetworkInterfaceType != NetworkInterfaceType.Loopback
+                        && !n.Name.Contains("VMware")).FirstOrDefault();
+
+            return netInterface.GetIPProperties().GatewayAddresses.FirstOrDefault().Address.ToString();
         }
     }
 }

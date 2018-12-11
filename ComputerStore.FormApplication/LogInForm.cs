@@ -23,8 +23,18 @@ namespace ComputerStore.FormApplication
 
         private void LogInForm_Load(object sender, EventArgs e)
         {
-            Ultilities.ip = txtbxIp.Text;
-            Ultilities.port = Convert.ToInt32(txtbxPort.Text);
+            try
+            {
+                string gw = Ultilities.GetDefaultGateway();
+                Ultilities.ip = gw;
+                Ultilities.port = Convert.ToInt32(txtbxPort.Text);
+                txtbxIp.Text = gw;
+            }
+            catch (Exception)
+            {
+                Ultilities.ip = txtbxIp.Text;
+                Ultilities.port = Convert.ToInt32(txtbxPort.Text);
+            }
             nhanVienController = new NhanVienController(Ultilities.ip, Ultilities.port);
         }
 

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -149,7 +150,7 @@ namespace ComputerStore.FormApplication
                 mahd = this.maHd;
             }
 
-            Services.Dto.HoaDonDto a = await sellingController.GetHoaDon(mahd);
+            Services.Dto.HoaDonDto hoaDon = await sellingController.GetHoaDon(mahd);
             List<Services.Dto.MatHangDuocBanDto> b = await sellingController.GetMatHangDuocBan(mahd);
 
             ExcelPackage package = new ExcelPackage();
@@ -158,11 +159,11 @@ namespace ComputerStore.FormApplication
             ws.Column(1).Width = 18.0;
             ws.Column(2).Width = 24.0;
             ws.Column(3).Width = 11.7;
-            ws.Column(4).Width = 5.0;
+            ws.Column(4).Width = 12.5;
             ws.Column(5).Width = 15.0;
 
             ws.Cells["A1"].Value = "Mã hóa đơn";
-            ws.Cells["B1"].Value = a.MaHD;
+            ws.Cells["B1"].Value = hoaDon.MaHD;
 
             ws.Cells["B3"].Value = "HÓA ĐƠN MUA HÀNG";
             ws.Cells["B3:D3"].Merge = true;
@@ -187,18 +188,29 @@ namespace ComputerStore.FormApplication
             }
 
             ws.Cells[dgvSanphamban.RowCount + 8, 1].Value = "Tên khách hàng";
-            ws.Cells[dgvSanphamban.RowCount + 8, 2].Value = a.TenKH;
+            ws.Cells[dgvSanphamban.RowCount + 8, 2].Value = hoaDon.TenKH;
             ws.Cells[dgvSanphamban.RowCount + 8, 2].Style.Font.Bold = true;
 
             ws.Cells[dgvSanphamban.RowCount + 8, 4].Value = "Tổng";
-            ws.Cells[dgvSanphamban.RowCount + 8, 5].Value = $"{a.ThanhTien.ToString("N0")} VND";
+            ws.Cells[dgvSanphamban.RowCount + 9, 4].Value = "Tiền khách trả";
+            ws.Cells[dgvSanphamban.RowCount + 10, 4].Value = "Trả lại khách";
+            ws.Cells[dgvSanphamban.RowCount + 8, 5].Value = $"{hoaDon.ThanhTien.ToString("N0")} VND";
+            ws.Cells[dgvSanphamban.RowCount + 9, 5].Value = $"{hoaDon.TienKhachtra.ToString("N0")} VND";
+            ws.Cells[dgvSanphamban.RowCount + 10, 5].Value = $"{(hoaDon.TienKhachtra - hoaDon.ThanhTien).ToString("N0")}";
             ws.Cells[dgvSanphamban.RowCount + 8, 5].Style.Font.Bold = true;
+            ws.Cells[dgvSanphamban.RowCount + 9, 5].Style.Font.Bold = true;
+            ws.Cells[dgvSanphamban.RowCount + 10, 5].Style.Font.Bold = true;
 
-            ws.Cells[dgvSanphamban.RowCount + 9, 1].Value = a.NgayLap;
+            ws.Cells[dgvSanphamban.RowCount + 9, 1].Value = hoaDon.NgayLap;
             ws.Cells[dgvSanphamban.RowCount + 10, 1, dgvSanphamban.RowCount + 10, 2].Merge = true;
 
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            package.SaveAs(new System.IO.FileInfo(path + $"\\HoaDon{DateTime.Now.ToString("yyyyMMddHHmmss")}{mahd}.xlsx"));
+            string filename = $"\\HoaDon{DateTime.Now.ToString("yyyyMMddHHmmss")}{mahd}.xlsx";
+            package.SaveAs(new System.IO.FileInfo(path + filename));
+
+            MessageBox.Show("Đã xuất file Excel", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Process.Start(path + filename);
         }
     }
 }

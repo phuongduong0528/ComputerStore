@@ -31,6 +31,7 @@ namespace ComputerStore.FormApplication
 
         private async Task RefreshDgv()
         {
+            dgvNguoidung.DataSource = null;
             nhanVienController = new NhanVienController(Ultilities.ip, Ultilities.port);
             List<Services.Dto.NhanVienDto> nv = await nhanVienController.GetAllNhanVien();
             dgvNguoidung.DataSource = nv;
@@ -132,7 +133,7 @@ namespace ComputerStore.FormApplication
             }
         }
 
-        private void btnKhoa_Click(object sender, EventArgs e)
+        private async void btnKhoa_Click(object sender, EventArgs e)
         {
             try
             {
@@ -143,8 +144,8 @@ namespace ComputerStore.FormApplication
                     MessageBox.Show("Không thể khóa tài khoản hiện tại", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                nhanVienController.LockAccount(id);
-                RefreshDgv();
+                await nhanVienController.LockAccount(id);
+                await RefreshDgv();
             }
             catch (Exception)
             {
